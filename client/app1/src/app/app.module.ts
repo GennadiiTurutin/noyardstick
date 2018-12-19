@@ -15,7 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material';
-import { MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,6 +37,7 @@ import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
 import { TooltipComponent } from './auth/tooltip/tooltip.component';
+import 'hammerjs';
  
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -89,7 +90,9 @@ const appRoutes: Routes = [
     MatTooltipModule
   ],
   entryComponents: [SignindialogComponent],
-  providers: [DatePipe, GlobalService],
+  providers: [DatePipe, GlobalService, 
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

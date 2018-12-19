@@ -1,15 +1,57 @@
-<div>
-  <h2 mat-dialog-title>My Dialog</h2>
-  <hr>
-  <mat-dialog-content>
-    Lorem ipsum dolor sit amet
-    <br>
-    <br>
-    <strong>{{data}}</strong>
-  </mat-dialog-content>
-  <hr>
-  <mat-dialog-actions>
-    <button mat-raised-button (click)="onCloseConfirm()">CONFIRM</button>
-    <button mat-raised-button (click)="onCloseCancel()">CANCEL</button>
-  </mat-dialog-actions>
-</div>
+<h1 mat-dialog-title>Login</h1>
+<div mat-dialog-content>
+  <p>Please type in your username and password</p>
+
+<form (ngSubmit)="loginUser()" [formGroup]="userLogin">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+      
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+
+          <input 
+          matInput
+          formControlName="email"
+          placeholder="Email">
+
+          <mat-error *ngIf="userLogin.get('email').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+
+          <mat-error *ngIf="userLogin.get('email').hasError('email')">
+              Wrong email format
+          </mat-error>
+
+        </mat-form-field>
+      </div>
+        <br>
+
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+
+          <input 
+          type="password"
+          matInput 
+          formControlName="password" 
+          placeholder="Password">
+
+          <mat-error *ngIf="userLogin.get('password').hasError('required')">
+            Please enter the password
+          </mat-error>
+
+        </mat-form-field>
+      </div>
+
+      <button mat-ripple mat-raised-button 
+              type="submit" 
+              [disabled]="userLogin.invalid || loading" 
+              color="primary">
+      Login
+      </button>
+
+      <button mat-ripple mat-raised-button (click)="onCloseCancel()">Cancel</button>
+    </div>
+
+</form>
+
+

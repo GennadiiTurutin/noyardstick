@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MatDialog } from '@angular/material';
-import { MatDialogModule } from '@angular/material'
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import  { SignindialogComponent } from '../signindialog/signindialog.component';
 
+export interface DialogData {
+  user: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-signin',
@@ -16,31 +18,26 @@ import  { SignindialogComponent } from '../signindialog/signindialog.component';
   providers: [UserService]
 })
 export class SigninComponent implements OnInit {
-
+  
   userLogin: FormGroup;
   loading: boolean;
-
-  dialogResult = "";
+  
+  email: string;
+  password: string;
 
   constructor(private userService: UserService, 
-              private fb: FormBuilder,
               private router: Router,
               private globalService: GlobalService,
               public dialog: MatDialog) { 
-              
-              this.userLogin = this.fb.group({
-                  username: ['', Validators.required],
-                  password: ['', Validators.required]
-                });
               }
 
   ngOnInit() {
-    this.loading = false;
-    if (localStorage.getItem('token') && localStorage.getItem('account')) {
-      this.globalService.me = JSON.parse(localStorage.getItem('account'));
+    //this.loading = false;
+    //if (localStorage.getItem('token') && localStorage.getItem('account')) {
+    //  this.globalService.me = JSON.parse(localStorage.getItem('account'));
     }
   }
- 
+  /*
   loginUser() {
     this.loading = true;
     this.userService.loginUser(this.userLogin.value).subscribe(
@@ -56,18 +53,21 @@ export class SigninComponent implements OnInit {
       }
     );
   }
-
-  openDialog() {
+  */
+  
+  /*
+  openDialog(): void {
     let dialogRef = this.dialog.open(SignindialogComponent, {
-      width: '600px',
-      data: 'This text is passed into the dialog'
+      width: '400px',
+      data: {email: this.email, password: this.password}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed: ${result}');
-      this.dialogResult = result;
+    dialogRef.afterClosed().subscribe(data => {
+      this.email = data.email;
+      this.password = data.password;
     })
 
   }
-}
+  */
+
 
