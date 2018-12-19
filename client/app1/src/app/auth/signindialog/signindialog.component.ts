@@ -3,11 +3,11 @@ import { UserService } from '../../services/user.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 export interface DialogData {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -27,14 +27,20 @@ export class SignindialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: DialogData,
               private userService: UserService, 
               private router: Router,
+              private fb: FormBuilder,
               private globalService: GlobalService,
-              public dialog: MatDialog ) { }
+              public dialog: MatDialog ) { 
+
+                this.userLogin = this.fb.group({
+                  username: ['', Validators.required ],
+                  password: ['', Validators.required]
+                });
+              }
 
   ngOnInit() {
     this.loading = false;
     if (localStorage.getItem('token') && localStorage.getItem('account')) {
       this.globalService.me = JSON.parse(localStorage.getItem('account'));
-      console.log(this.globalService.me)
     }
   }
 

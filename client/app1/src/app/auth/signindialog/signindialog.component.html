@@ -11,15 +11,11 @@
 
           <input 
           matInput
-          formControlName="email"
-          placeholder="Email">
+          formControlName="username"
+          placeholder="Username">
 
-          <mat-error *ngIf="userLogin.get('email').hasError('required')">
+          <mat-error *ngIf="userLogin.get('username').hasError('required')">
             Email is <strong>required</strong>
-          </mat-error>
-
-          <mat-error *ngIf="userLogin.get('email').hasError('email')">
-              Wrong email format
           </mat-error>
 
         </mat-form-field>

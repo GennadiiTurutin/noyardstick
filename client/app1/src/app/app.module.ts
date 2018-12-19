@@ -32,7 +32,6 @@ import { TwitterComponent } from './twitter/twitter.component';
 import { TagsComponent } from './tags/tags.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
@@ -45,7 +44,6 @@ const appRoutes: Routes = [
   { path: 'about_me', component: AboutMeComponent },
   { path: 'watchers', component: WatchersComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent },
   { path: 'logout', component: LogoutComponent }
 ];
 
@@ -66,7 +64,6 @@ const appRoutes: Routes = [
     TagsComponent,
     PostDetailComponent, 
     SignupComponent,
-    SigninComponent,
     LeftSidebarComponent,
     LogoutComponent,
     SignindialogComponent,

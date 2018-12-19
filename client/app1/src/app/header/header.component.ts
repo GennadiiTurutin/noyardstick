@@ -14,7 +14,7 @@ import  { SignindialogComponent } from '../auth/signindialog/signindialog.compon
 })
 export class HeaderComponent implements OnInit {
 
-  email: string;
+  username: string;
   password: string;
 
   constructor(private userService: UserService, 
@@ -29,11 +29,11 @@ export class HeaderComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(SignindialogComponent, {
       width: '400px',
-      data: {email: this.email, password: this.password}
+      data: {username: this.username, password: this.password}
     });
 
     dialogRef.afterClosed().subscribe(data => {
-      this.email = data.email;
+      this.username = data.username;
       this.password = data.password;
     })
   }
