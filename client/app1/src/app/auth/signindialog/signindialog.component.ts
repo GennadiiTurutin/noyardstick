@@ -1,15 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { GlobalService } from 'src/app/services/global.service';
-import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
-
-export interface DialogData {
-  username: string;
-  password: string;
-}
 
 @Component({
   selector: 'app-signindialog',
@@ -24,9 +18,7 @@ export class SignindialogComponent implements OnInit {
   loading: boolean;
 
   constructor(public DialogRef: MatDialogRef<SignindialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: DialogData,
               private userService: UserService, 
-              private router: Router,
               private fb: FormBuilder,
               private globalService: GlobalService,
               public dialog: MatDialog ) { 
@@ -51,7 +43,7 @@ export class SignindialogComponent implements OnInit {
         this.loading = false;
         localStorage.setItem('token', response['token']);
         this.globalService.me = response['user'];
-        this.router.navigate(['/']);
+        this.onCloseCancel()
       },
       error => {
         this.loading = false;
