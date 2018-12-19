@@ -1,0 +1,35 @@
+
+h5 {
+  font-size: 30px;
+  color: red;
+}
+
+a {
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
+  color: grey;
+  text-align: center; 
+}
+
+#icon {
+  font-size: 40px;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  text-align: center; 
+  padding: 100%;
+}
+
+p.a {
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
+  color: grey;
+  text-align: center; 
+  color: white;
+}
+
+
+#footer {
+  background-color: #f0f0f5;
+  margin-top: 10%;
+  margin-bottom: 0%;
+}

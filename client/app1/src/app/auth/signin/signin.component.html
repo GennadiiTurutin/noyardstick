@@ -1,0 +1,74 @@
+<div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+  <div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
+      <h1>Login</h1>
+      <p>Please type in your credentials if you already have an account</p>
+      <p>If you don't have an account and you want to get our regular uodates, get registered here</p>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">  
+      <form (ngSubmit)="loginUser()" [formGroup]="userLogin">
+   
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+          
+          <input matInput
+                 formControlName="username"
+                 placeholder="Username"
+                 id="username">
+
+          <mat-error *ngIf="userLogin.get('username').hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+
+          </mat-form-field>
+        </div>
+
+      <br>
+
+      <div class="form-group">
+          <mat-form-field class="example-full-width">
+        
+          <input matInput 
+                 type="password"
+                 formControlName="password"  
+                 placeholder="password"
+                 id="password">
+
+          <mat-error *ngIf="userLogin.get('password').hasError('required')">
+            Please enter the password
+          </mat-error>
+
+          </mat-form-field>
+      </div>
+
+      <button mat-ripple 
+              mat-raised-button 
+              type="submit" 
+              [disabled]="userLogin.invalid || loading" 
+              color="primary">Login</button>
+      </form>
+      <br>
+      <mat-spinner *ngIf="loading"></mat-spinner>
+      <a [routerLink]="['/signup']">Don't have an account yet?</a>
+    </div>
+  </div>
+</div>
+
+<mat-card class="card1">
+  <mat-card-header>
+    <mat-card-title><h1>Dialog Demo</h1></mat-card-title>
+  </mat-card-header>
+  <hr>
+  <mat-card-content>
+    <button md-raised-button (click)="openDialog()">Open Dialog</button>
+    <hr>
+    <strong>Result: {{dialogResult}}</strong>
+  </mat-card-content>
+</mat-card>
+
+<div style="text-align: center">
+  <app-signindialog></app-signindialog>
+  <app-tooltip></app-tooltip>
+</div>

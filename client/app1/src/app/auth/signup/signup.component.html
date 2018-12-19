@@ -1,0 +1,93 @@
+<div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+        <div class="container">
+          <h1>Registration</h1>
+          <p>Welcome! If you register, you'll be getting our regular updates for free!</p>
+        </div> 
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
+        
+
+          <form (ngSubmit)="registerUser()" [formGroup]="userRegister">
+
+              <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                
+                  <input 
+                  matInput
+                  formControlName="username"
+                  placeholder="Username">
+
+                  <mat-error *ngIf="userRegister.get('username').hasError('required')">
+                    Username is <strong>required</strong>
+                  </mat-error>
+
+                  </mat-form-field>
+                </div>
+
+                <br>
+                
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+
+                    <input 
+                    matInput
+                    formControlName="email"
+                    placeholder="Email">
+
+                    <mat-error *ngIf="userRegister.get('email').hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+
+                    <mat-error *ngIf="userRegister.get('email').hasError('email')">
+                        Wrong email format
+                    </mat-error>
+
+                  </mat-form-field>
+                </div>
+                  <br>
+
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+
+                    <input 
+                    type="password"
+                    matInput 
+                    formControlName="password" 
+                    placeholder="Password">
+
+                    <mat-error *ngIf="userRegister.get('password').hasError('required')">
+                      Please enter the password
+                    </mat-error>
+
+                    <mat-error *ngIf="userRegister.get('password').hasError('minLength')">
+                      Password has to be at least 6 characters
+                    </mat-error>
+
+                  </mat-form-field>
+                </div>
+          
+                <button mat-ripple mat-raised-button 
+                        type="submit" 
+                        [disabled]="userRegister.invalid || loading" 
+                        color="primary">
+                Register
+                </button>
+              </div>
+         </form>
+         
+        
+      
+    </div>
+   
+  </div>
+   <div class="container">
+          <a [routerLink]="['/signin']">Have an account?</a>
+        </div>
+
+</div>
