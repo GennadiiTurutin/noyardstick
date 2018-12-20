@@ -24,6 +24,10 @@ export class ApiService {
     return this.http.post(this.baseurl + '/comments/', comment, this.getAuthHeaders())
   }
 
+  getPostsforTag(id:number): Observable<any> {
+    return this.http.get(this.baseurl + '/tags/' + id + '/')
+  }
+
   private getAuthHeaders() {
     const token = localStorage.getItem('token');
     const httpHeaders = new HttpHeaders(

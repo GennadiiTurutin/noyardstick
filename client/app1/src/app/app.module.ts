@@ -38,6 +38,7 @@ import { SignindialogComponent } from './auth/signindialog/signindialog.componen
 import { TooltipComponent } from './auth/tooltip/tooltip.component';
 import 'hammerjs';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { TagsearchComponent } from './tagsearch/tagsearch.component';
  
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,7 +46,9 @@ const appRoutes: Routes = [
   { path: 'about_me', component: AboutMeComponent },
   { path: 'watchers', component: WatchersComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent },
+  { path: 'tags/:id', component: TagsearchComponent }
+
 ];
 
 
@@ -69,7 +72,8 @@ const appRoutes: Routes = [
     LogoutComponent,
     SignindialogComponent,
     TooltipComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    TagsearchComponent
   ],
   imports: [
     BrowserModule,
