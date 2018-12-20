@@ -8,11 +8,15 @@ import { ApiService } from '../services/api.service';
 })
 export class TagsComponent {
   tags = [];
+  posts = [];
+  data = [];
 
-  constructor(private api: ApiService) { 
+  constructor(private api: ApiService) { }
+
+  ngOnInit() {
     this.getTags()
   }
-
+  
   getTags = () => {
     this.api.getTags().subscribe(
       data => { 
@@ -24,5 +28,5 @@ export class TagsComponent {
     )
   }
 
-  ngOnInit() {}
+  
 }

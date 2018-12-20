@@ -42,8 +42,14 @@ class CommentDetailSerializer(serializers.HyperlinkedModelSerializer):
         model = Comment
         fields = ('content', 'date_posted', 'post', 'author')
 
+class PostSerializer_(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('id', 'title', 'subtitle', 'content')
+
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
+    posts = PostSerializer_(many=True, read_only=True)
     class Meta:
         model = Tag
         fields = ('name', 'posts')
@@ -56,6 +62,9 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'title', 'subtitle', 'content', 'tags', 'comments', 'post_images')
+
+
+
 
 
 

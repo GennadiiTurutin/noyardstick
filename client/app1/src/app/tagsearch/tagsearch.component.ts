@@ -11,10 +11,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 })
 export class TagsearchComponent implements OnInit {
-  posts: Observable<any>
-  tags = [];
-  data = [];
+  tag: Observable<any>
   id: number;
+  posts = [];
 
   constructor(private api: ApiService,
               private router: Router,
@@ -27,17 +26,15 @@ export class TagsearchComponent implements OnInit {
           this.id = +params['id'];
         }
       )
-    this.getPostsforTag();
-  }
-
-  getPostsforTag = () => {
     this.api.getPostsforTag(this.id).subscribe(
-      data => { 
-        this.posts = data;
-      }, 
-      error => {
-        console.log(error)
-      }
-    )
-  }
+        data => { 
+          this.tag = data;
+          console.log(this.tag)
+        }, 
+        error => {
+          console.log("ERROR")
+          console.log(this.tag)
+        }
+      )
+  }   
 }
