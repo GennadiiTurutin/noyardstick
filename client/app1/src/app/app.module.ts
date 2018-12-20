@@ -37,6 +37,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
 import { TooltipComponent } from './auth/tooltip/tooltip.component';
 import 'hammerjs';
+import { SubscriptionComponent } from './subscription/subscription.component';
  
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     LeftSidebarComponent,
     LogoutComponent,
     SignindialogComponent,
-    TooltipComponent
+    TooltipComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatTooltipModule
   ],
-  entryComponents: [SignindialogComponent],
+  entryComponents: [SignindialogComponent, SubscriptionComponent],
   providers: [DatePipe, GlobalService, 
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],

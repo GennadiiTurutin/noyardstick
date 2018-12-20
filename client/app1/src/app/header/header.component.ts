@@ -4,6 +4,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import  { SignindialogComponent } from '../auth/signindialog/signindialog.component';
+import { SubscriptionComponent } from '../subscription/subscription.component';
 
 
 @Component({
@@ -25,6 +26,13 @@ export class HeaderComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(SignindialogComponent, {
+      width: '400px'
+    });
+    dialogRef.afterClosed()
+  }
+
+  openSubscriptionDialog(): void {
+    let dialogRef = this.dialog.open(SubscriptionComponent, {
       width: '400px'
     });
     dialogRef.afterClosed()
