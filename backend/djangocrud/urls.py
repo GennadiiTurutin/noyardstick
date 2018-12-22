@@ -18,5 +18,6 @@ router.register('images', views.ImageViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('', include(router.urls)),
-    url('authenticate/', CustomObtainAuthToken.as_view())
+    url('authenticate/', CustomObtainAuthToken.as_view()),
+    url('tags/search/(?P<tagname>.+)/$', views.PostList.as_view()),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

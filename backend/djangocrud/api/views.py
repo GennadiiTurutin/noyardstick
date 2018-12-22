@@ -21,6 +21,8 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 
+from rest_framework import generics
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer   
@@ -52,3 +54,12 @@ class CustomObtainAuthToken(ObtainAuthToken):
         user = User.objects.get(id=token.user_id)
         serializer = UserSerializer(user, many=False)
         return Response({'token': token.key, 'user': serializer.data})
+
+
+class PostList(generics.ListAPIView):
+    serializer_class = TagSerializer
+
+    def get_queryset(self):
+        tagname = self.kwargs['tagname']
+        return Tag.objects.filter(name=tagname)
+

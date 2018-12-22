@@ -1,18 +1,18 @@
-<div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
-  <div class="row">
-   <h2>Posts for tag <span class="label label-default">{{ tag.name }}</span></h2>
+<div class="container"> 
+  <div *ngIf="tag">
+    <h2>Posts for tag <span class="label label-default">{{ tag.name  }}</span></h2>
 
-   <a *ngFor="let post of tag.posts"
+    <a *ngFor="let post of tag.posts "
     [routerLink]="['/posts', post.id ]"> 
 
-    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%">
-    
-      <h2><b>{{ post.title }}</b></h2>
-      <h4>{{ post.subtitle }}</h4>
-    </div>
-    <br>
-    
-  </a>
+      <div class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%">
+       
+        <h2><b>{{ post.title }}</b></h2>
+        <h4>{{ post.subtitle }}</h4>
+        <p> And</p>
+        <br>
+       
+      </div>
+      </a>
   </div>
-  
 </div>
