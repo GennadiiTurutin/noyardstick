@@ -16,7 +16,6 @@ export class PostComponent implements OnInit{
   
   constructor (private api: ApiService ) { }
    
-
   ngOnInit() {
      this.getPosts();
   }
@@ -28,6 +27,8 @@ export class PostComponent implements OnInit{
       }, 
       error => {
         console.log(error)
+        console.log(this.posts)
+        
       }
     )
   }

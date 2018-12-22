@@ -27,6 +27,10 @@ export class ApiService {
   getPostsforTag(id:string): Observable<any> {
     return this.http.get(this.baseurl + '/tags/search/' + id + '/')
   }
+ 
+  searchPosts(id:string): Observable<any> {
+    return this.http.get(this.baseurl + '/posts/?search=' + id )
+  }
 
   private getAuthHeaders() {
     const token = localStorage.getItem('token');

@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import  { SignindialogComponent } from '../auth/signindialog/signindialog.component';
 import { SubscriptionComponent } from '../subscription/subscription.component';
+import { ApiService } from '../services/api.service';
+import { Observable } from 'rxjs';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -14,11 +17,18 @@ import { SubscriptionComponent } from '../subscription/subscription.component';
   providers: [UserService]
 })
 export class HeaderComponent implements OnInit {
+  searchvalue: FormGroup;
+  posts: Observable<any>;
 
   constructor(private userService: UserService, 
     private router: Router,
     private globalService: GlobalService,
-    public dialog: MatDialog) { 
+    public dialog: MatDialog,
+    private api: ApiService,
+    private fb: FormBuilder) { 
+      this.searchvalue = this.fb.group({
+        q: ['', [Validators.required, Validators.minLength(3)] ],
+      });
     }
 
 
@@ -38,7 +48,18 @@ export class HeaderComponent implements OnInit {
     dialogRef.afterClosed()
   }
 
-  
+  searchPosts () {
+    this.api.searchPosts(this.searchvalue.value.q).subscribe(
+      response => {
+        this.router.navigate(['/search/' + this.searchvalue.value.q]);
+        console.log(response)
+        },
+      error => {
+        console.log(error)
+        }
+
+    )
+  }
 
 }
 

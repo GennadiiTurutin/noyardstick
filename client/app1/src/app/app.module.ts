@@ -39,6 +39,7 @@ import { TooltipComponent } from './auth/tooltip/tooltip.component';
 import 'hammerjs';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { TagsearchComponent } from './tagsearch/tagsearch.component';
+import { SearchComponent } from './search/search.component';
  
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
   { path: 'watchers', component: WatchersComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'search/:id', component: SearchComponent },
   { path: 'tags/:id', component: TagsearchComponent }
 
 ];
@@ -73,7 +75,8 @@ const appRoutes: Routes = [
     SignindialogComponent,
     TooltipComponent,
     SubscriptionComponent,
-    TagsearchComponent
+    TagsearchComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

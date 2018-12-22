@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .serializers import ( 
     PostSerializer, 
+    PostSerializer_, 
     TagSerializer, 
     CommentSerializer, 
     CommentDetailSerializer,
@@ -23,7 +24,19 @@ from rest_framework.authtoken.views import ObtainAuthToken
 
 from rest_framework import generics
 
-class UserViewSet(viewsets.ModelViewSet):
+from django.db.models import Q
+
+from rest_framework.filters import (
+    SearchFilter, 
+    OrderingFilter
+    )
+
+from rest_framework.pagination import (
+    LimitOffsetPagination,
+    PageNumberPagination
+    )
+
+class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer   
     authentication_classes = (TokenAuthentication, )
@@ -32,6 +45,8 @@ class UserViewSet(viewsets.ModelViewSet):
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ('title', 'subtitle', 'content')
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
@@ -62,4 +77,8 @@ class PostList(generics.ListAPIView):
     def get_queryset(self):
         tagname = self.kwargs['tagname']
         return Tag.objects.filter(name=tagname)
+
+
+
+
 
