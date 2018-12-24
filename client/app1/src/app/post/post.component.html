@@ -20,7 +20,7 @@
       <p>Tags:
         <a  *ngFor="let tag of post.tags"
             [routerLink]="['/tags', tag ]" >
-            <span class="label label-default">{{ tag.name }} </span>
+            <span class="label label-default">{{ tag.name }} </span>&nbsp;
         </a>
       </p>
     </div>

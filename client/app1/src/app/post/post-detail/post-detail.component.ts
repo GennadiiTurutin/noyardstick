@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { GlobalService } from 'src/app/services/global.service';
 import { UserService } from '../../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Observable } from "rxjs/Rx"
+import { Observable } from "rxjs/Rx";
 
 
 @Component({
@@ -31,10 +31,7 @@ export class PostDetailComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private globalService: GlobalService,
-              private userService: UserService) {
-
-
-               }
+              private userService: UserService) {}
   
   account: User = new User();
   userSub: Subscription;
@@ -65,6 +62,7 @@ export class PostDetailComponent implements OnInit {
     this.api.getPost(this.id).subscribe(
         data => { 
           this.post = data;
+          console.log(this.post)
         }, 
         error => {
           console.log(this.post)
@@ -78,6 +76,7 @@ export class PostDetailComponent implements OnInit {
         response => {
           this.loading = false;
           console.log(response)
+          window.location.reload();
         },
         error => {
           this.loading = false;

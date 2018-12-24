@@ -25,12 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('__all__')
         extra_kwargs = {'password' : {'write_only': True, 'required': True}}
 
-    """
-    def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
-        return user
-    """
-
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
@@ -61,7 +55,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = Post
-        fields = ('id', 'title', 'subtitle', 'content', 'tags', 'comments', 'post_images')
+        fields = ('id', 'title', 'subtitle', 'content', 'tags', 'comments', 'post_images', 'date_posted')
 
 
 

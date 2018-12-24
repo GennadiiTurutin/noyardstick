@@ -14,14 +14,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
-import { MatTooltipModule } from '@angular/material';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PostComponent } from './post/post.component';
 import { HomeComponent } from './home/home.component';
@@ -35,12 +33,13 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
-import { TooltipComponent } from './auth/tooltip/tooltip.component';
 import 'hammerjs';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { TagsearchComponent } from './tagsearch/tagsearch.component';
 import { SearchComponent } from './search/search.component';
- 
+import { AvatarModule } from 'ngx-avatar';
+
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts/:id', component: PostDetailComponent },
@@ -59,7 +58,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     SidebarComponent,
     PostComponent,
     HomeComponent,
@@ -73,7 +71,6 @@ const appRoutes: Routes = [
     LeftSidebarComponent,
     LogoutComponent,
     SignindialogComponent,
-    TooltipComponent,
     SubscriptionComponent,
     TagsearchComponent,
     SearchComponent
@@ -93,10 +90,11 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule,
     MatCardModule,
-    MatTooltipModule
+    AvatarModule
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent],
-  providers: [DatePipe, GlobalService, 
+  providers: [ 
+    DatePipe, GlobalService, 
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]

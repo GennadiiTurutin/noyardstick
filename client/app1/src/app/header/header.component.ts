@@ -8,6 +8,7 @@ import { SubscriptionComponent } from '../subscription/subscription.component';
 import { ApiService } from '../services/api.service';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { SearchComponent } from '../search/search.component';
 
 
 @Component({
@@ -49,16 +50,8 @@ export class HeaderComponent implements OnInit {
   }
 
   searchPosts () {
-    this.api.searchPosts(this.searchvalue.value.q).subscribe(
-      response => {
-        this.router.navigate(['/search/' + this.searchvalue.value.q]);
-        console.log(response)
-        },
-      error => {
-        console.log(error)
-        }
-
-    )
+    window.location.reload();
+    this.router.navigate(['/search/' + this.searchvalue.value.q]);
   }
 
 }

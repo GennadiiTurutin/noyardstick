@@ -11,26 +11,26 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   posts: Observable<any>;
   id: string;
+  isInitiated: boolean;
 
   constructor(private api: ApiService, 
               private route: ActivatedRoute) { }
+  
+  
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.searchPosts()
-
+    this.searchPosts(this.id)
+    this.isInitiated = true;
   }
 
-  searchPosts = () => {
-    this.api.searchPosts(this.id).subscribe(
+  searchPosts(q: string)  {
+    this.api.searchPosts(q).subscribe(
       data => {
         this.posts = data;
-        console.log(this.posts)
+        console.log(data)
         },
-        error => {
-          console.log(error)
-          console.log(this.posts)
-        }
-    )
-  }
+        error => {console.log(error)}
+      )
+    } 
 }
