@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Post, Tag, Comment, Image
+from .models import Post, Tag, Comment, Image, Category
 from django.db import models
 
 from django.contrib.contenttypes.models import ContentType
@@ -48,14 +48,22 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
         model = Tag
         fields = ('name', 'posts')
 
+class CategorySerializer(serializers.HyperlinkedModelSerializer):
+    posts = PostSerializer_(many=True, read_only=True)
+    class Meta:
+        model = Category
+        fields = ('name', 'posts')
+
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
+    categories = CategorySerializer(many=True, read_only=True)
     comments = CommentDetailSerializer(many=True, read_only=True)
     post_images = ImageSerializer(many=True, read_only=True)
     
     class Meta:
         model = Post
-        fields = ('id', 'title', 'subtitle', 'content', 'tags', 'comments', 'post_images', 'date_posted')
+        fields = ('id', 'title', 'subtitle', 'content', 'tags', 'categories', 
+                  'comments', 'post_images', 'date_posted')
 
 
 

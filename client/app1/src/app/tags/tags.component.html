@@ -1,9 +1,9 @@
 <div clas="container">
-  <h4> Tags </h4>
+  <h4><span class="glyphicon glyphicon-tags"></span>&nbsp; Tags </h4>
   <hr>
   <a
 *ngFor="let tag of tags "
 [routerLink]="['/tags', tag.name ]">
-  <h4><span class="label label-default">{{ tag.name }}</span></h4>
+  <h4>{{ tag.name }}</h4>
 </a>  
 </div>

@@ -47,7 +47,7 @@
           Contributions, comments and sophisticated bad language are always welcome!
           </p> 
           <p>
-            <a (click)="openSubscriptionDialog()" class="btn-outline-success btn-lg" role="button">Subscribe</a>
+            <a (click)="api.openSubscriptionDialog()" class="btn-outline-success btn-lg" role="button">Subscribe</a>
           </p>
       </div>
 
@@ -63,7 +63,7 @@
   </div>
 </div>
 
-<nav id="nav2" class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+<nav id="nav2" class="navbar navbar-dark navbar-expand-md bg-dark">
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" 
     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
     aria-expanded="false" aria-label="Toggle navigation">
@@ -107,7 +107,7 @@
           id="link"
           role="presentation"
           routerLinkActive="active">
-        <a (click)="openDialog()">Login</a>
+        <a (click)="api.openDialog()">Login</a>
       </li> 
 
       <li *ngIf="userService.isLoggedIn()"

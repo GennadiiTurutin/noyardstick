@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { SubscriptionComponent } from '../subscription/subscription.component';
+import { MatDialog } from '@angular/material';
+import  { SignindialogComponent } from '../auth/signindialog/signindialog.component';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -10,7 +13,8 @@ export class ApiService {
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
   baseurl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient,
+              public dialog: MatDialog ) { }
 
   getPosts(): Observable<any> {return this.http.get(this.baseurl + '/posts/')}
  
@@ -30,6 +34,20 @@ export class ApiService {
  
   searchPosts(id:string): Observable<any> {
     return this.http.get(this.baseurl + '/posts/?search=' + id )
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(SignindialogComponent, {
+      width: '400px'
+    });
+    dialogRef.afterClosed()
+  }
+
+  openSubscriptionDialog(): void {
+    let dialogRef = this.dialog.open(SubscriptionComponent, {
+      width: '400px'
+    });
+    dialogRef.afterClosed()
   }
 
   private getAuthHeaders() {

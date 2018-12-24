@@ -4,13 +4,14 @@ from .serializers import (
     PostSerializer, 
     PostSerializer_, 
     TagSerializer, 
+    CategorySerializer,
     CommentSerializer, 
     CommentDetailSerializer,
     UserSerializer, 
     ImageSerializer
     )
 
-from .models import Post, Tag, Comment, Image
+from .models import Post, Tag, Comment, Image, Category
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.generics import (
@@ -52,6 +53,10 @@ class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
 class CommentViewSet(viewsets.ModelViewSet, APIView):
     authentication_classes = (TokenAuthentication, SessionAuthentication )
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -77,6 +82,13 @@ class PostList(generics.ListAPIView):
     def get_queryset(self):
         tagname = self.kwargs['tagname']
         return Tag.objects.filter(name=tagname)
+
+class PostListCategory(generics.ListAPIView):
+    serializer_class = TagSerializer
+
+    def get_queryset(self):
+        category = self.kwargs['category']
+        return Category.objects.filter(name=category)
 
 
 
