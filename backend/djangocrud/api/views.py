@@ -75,7 +75,6 @@ class CustomObtainAuthToken(ObtainAuthToken):
         serializer = UserSerializer(user, many=False)
         return Response({'token': token.key, 'user': serializer.data})
 
-
 class PostList(generics.ListAPIView):
     serializer_class = TagSerializer
 

@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Subscription</h1>
+<h1 mat-dialog-title><b>Subscription</b></h1>
 <div mat-dialog-content>
   <p>If you want to subscribe for our updates, please enter your email</p>
 
@@ -32,15 +32,18 @@
               [disabled]="userSubscribe.invalid || loading" 
               color="primary">
       Subscribe
-      </button>
+      </button>&nbsp;
 
+      <button mat-ripple mat-raised-button 
+              (click)="Cancel()">
+      Cancel
+      </button>
       
     </div>
 
 </form>
-<div>
-  <button mat-ripple mat-raised-button (click)="Cancel()">Cancel</button>
-</div>
+
+  
 
 
 

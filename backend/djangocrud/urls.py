@@ -11,7 +11,7 @@ from djangocrud.api.views import CustomObtainAuthToken
 router = routers.DefaultRouter()
 router.register('posts', views.PostViewSet)
 router.register('tags', views.TagViewSet)
-router.register('tags', views.CategoryViewSet)
+router.register('categories', views.CategoryViewSet)
 router.register('comments', views.CommentViewSet)
 router.register('users', views.UserViewSet)
 router.register('images', views.ImageViewSet)

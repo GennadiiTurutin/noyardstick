@@ -38,6 +38,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { TagsearchComponent } from './tagsearch/tagsearch.component';
 import { SearchComponent } from './search/search.component';
 import { AvatarModule } from 'ngx-avatar';
+import { DiscussionComponent } from './discussion/discussion.component';
 
 
 const appRoutes: Routes = [
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     SignindialogComponent,
     SubscriptionComponent,
     TagsearchComponent,
-    SearchComponent
+    SearchComponent,
+    DiscussionComponent
   ],
   imports: [
     BrowserModule,

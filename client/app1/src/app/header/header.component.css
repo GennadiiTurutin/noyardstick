@@ -64,11 +64,5 @@
   border-bottom: 1px solid #d6d6d6;
 }
 
-.modal-backdrop {
-  z-index: 100000 !important;
-}
 
-.modal {
-  z-index: 100001 !important;
-}
 

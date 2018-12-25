@@ -1,0 +1,23 @@
+
+<div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%;">
+
+    <div class="container">
+      <h4> <span class="glyphicon glyphicon-tags">&nbsp;</span> Discussion </h4>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+      <a *ngFor="let tag of tags"
+      [routerLink]="['/tags', tag.name ]"
+      class="list-group-item clearfix">
+    
+        <div class="col-xs-12"> 
+          <div class="pull-left">
+          <h5 class="list-group-item-heading">{{ tag.name }}</h5>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+  
+  </div>

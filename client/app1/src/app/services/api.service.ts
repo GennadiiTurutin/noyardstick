@@ -45,7 +45,8 @@ export class ApiService {
 
   openSubscriptionDialog(): void {
     let dialogRef = this.dialog.open(SubscriptionComponent, {
-      width: '400px'
+      width: '400px',
+      disableClose: false
     });
     dialogRef.afterClosed()
   }
