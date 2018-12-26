@@ -49,6 +49,18 @@ class PostViewSet(viewsets.ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ('title', 'subtitle', 'content')
 
+class PostLongReadViewSet(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.filter(long_read=True)
+
+class PostImportantViewSet(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.filter(super_important=True)
+
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer

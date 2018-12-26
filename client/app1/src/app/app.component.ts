@@ -1,31 +1,52 @@
-import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../app/services/user.service';
+import { GlobalService } from 'src/app/services/global.service';
+import { Router } from '@angular/router';
+import { ApiService } from '../app/services/api.service';
+import { Observable } from 'rxjs';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { SearchComponent } from '../app/search_pages/search/search.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ApiService]
+  providers: [ApiService, UserService]
 })
-export class AppComponent {
-  posts = [];
-  
-  constructor(private api: ApiService ) { 
-    this.getPosts();
+export class AppComponent implements OnInit {
+  searchvalue: FormGroup;
+  posts: Observable<any>;
+  categories = [];
+
+  constructor(private userService: UserService, 
+    private router: Router,
+    private globalService: GlobalService,
+    private api: ApiService,
+    private fb: FormBuilder) { 
+      this.searchvalue = this.fb.group({
+        q: ['', [Validators.required, Validators.minLength(3)] ],
+      });
+    }
+
+  ngOnInit() {
+    this.getCategories(); 
+    
   }
 
-  getPosts = () => {
-    this.api.getPosts().subscribe(
-      data => { 
-        this.posts = data;
-      }, 
+  searchPosts () {
+    window.location.reload();
+    this.router.navigate(['/search/' + this.searchvalue.value.q]);
+  }
+
+  getCategories = () => {
+    this.api.getCategories().subscribe(
+      data => {
+        this.categories = data;
+      },
       error => {
         console.log(error)
       }
     )
   }
-
-  ngOnInit() {}
-
 
 }

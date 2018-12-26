@@ -41,6 +41,74 @@ h5 {
     margin-top: 10%;
     margin-bottom: 0%;
   }
+
+  
+  :host {
+    --main-bg-color: white;
+    --main-text-color: white; 
+    --secondary-text-color: black;
+    --main-logo-color: red;
+  }
+  
+  .nav>li {
+    display: inline-block;
+  }
+  
+  #nav1 {
+    margin-top: 3%;
+  }
+  
+  #nav1>ul {
+    display: inline-block;
+  }
+  
+  #nav1 #icons>li {
+    font-size: 25px;  
+  }
+  
+  #nav1 li>a {
+    color: var(--secondary-text-color);
+  }
+  
+  
+  #nav1 #logo {
+    font-size: 40px; 
+    color: var(--main-logo-color); 
+    text-align: center;
+  }
+  
+  #nav2 {
+    margin-bottom: 0%;
+  }
+  
+  #nav2>li {
+    margin-bottom: 0%;
+    display: inline-block;
+  }
+  
+  #link>a {
+    color: var(--main-text-color);
+  }
+  
+  
+  .jumbotron {
+    background-color: var(--main-bg-color); 
+    border-top: 5px solid #efeff5;
+  }
+  
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  #nav3 {
+    background: white; 
+    font: black; 
+    font-size: 12px;
+    border: 0;  
+    border-bottom: 1px solid #d6d6d6;
+  }
+  
   
 
 

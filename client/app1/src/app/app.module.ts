@@ -19,26 +19,25 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './sidebars/right-sidebar/sidebar.component';
 import { PostComponent } from './post/post.component';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { WatchersComponent } from './watchers/watchers.component';
 import { ArchiveComponent } from './archive/archive.component';
-import { TwitterComponent } from './twitter/twitter.component';
-import { TagsComponent } from './tags/tags.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
+import { LeftSidebarComponent } from './sidebars/left-sidebar/left-sidebar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
 import 'hammerjs';
-import { SubscriptionComponent } from './subscription/subscription.component';
-import { TagsearchComponent } from './tagsearch/tagsearch.component';
-import { SearchComponent } from './search/search.component';
+import { SubscriptionComponent } from './popups/subscription/subscription.component';
+import { TagsearchComponent } from './search_pages/tagsearch/tagsearch.component';
+import { SearchComponent } from './search_pages/search/search.component';
 import { AvatarModule } from 'ngx-avatar';
 import { DiscussionComponent } from './discussion/discussion.component';
+import { ContactComponent } from './popups/contact/contact.component';
+import { CategorysearchComponent } from './search_pages/categorysearch/categorysearch.component';
 
 
 const appRoutes: Routes = [
@@ -58,15 +57,12 @@ const appRoutes: Routes = [
   
   declarations: [
     AppComponent,
-    HeaderComponent,
     SidebarComponent,
     PostComponent,
     HomeComponent,
     AboutMeComponent,
     WatchersComponent,
     ArchiveComponent,
-    TwitterComponent,
-    TagsComponent,
     PostDetailComponent, 
     SignupComponent,
     LeftSidebarComponent,
@@ -75,7 +71,9 @@ const appRoutes: Routes = [
     SubscriptionComponent,
     TagsearchComponent,
     SearchComponent,
-    DiscussionComponent
+    DiscussionComponent,
+    ContactComponent,
+    CategorysearchComponent
   ],
   imports: [
     BrowserModule,
@@ -94,10 +92,10 @@ const appRoutes: Routes = [
     MatCardModule,
     AvatarModule
   ],
-  entryComponents: [SignindialogComponent, SubscriptionComponent],
+  entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent],
   providers: [ 
     DatePipe, GlobalService, 
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
   bootstrap: [AppComponent]
 })

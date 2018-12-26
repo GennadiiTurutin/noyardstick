@@ -22,4 +22,6 @@ urlpatterns = [
     url('authenticate/', CustomObtainAuthToken.as_view()),
     url('tags/search/(?P<tagname>.+)/$', views.PostList.as_view()),
     url('categories/search/(?P<category>.+)/$', views.PostListCategory.as_view()),
+    url('posts/long', views.PostLongReadViewSet.as_view()),
+    url('posts/important', views.PostImportantViewSet.as_view())
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
