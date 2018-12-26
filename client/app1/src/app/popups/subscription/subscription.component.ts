@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class SubscriptionComponent implements OnInit {
   userSubscribe: FormGroup;
   loading: boolean;
+  providers: [ApiService];
 
   constructor(private fb: FormBuilder,
               public DialogRef: MatDialogRef<SubscriptionComponent>,

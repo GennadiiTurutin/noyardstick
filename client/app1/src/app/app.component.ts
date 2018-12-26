@@ -3,6 +3,7 @@ import { UserService } from '../app/services/user.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../app/services/api.service';
+import { DialogService } from '../app/services/dialog.service';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SearchComponent } from '../app/search_pages/search/search.component';
@@ -12,7 +13,7 @@ import { User } from 'src/app/models/user';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ApiService, UserService]
+  providers: [ApiService, UserService, DialogService]
 })
 export class AppComponent implements OnInit {
   searchvalue: FormGroup;
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private globalService: GlobalService,
     private api: ApiService,
+    private dialog: DialogService,
     private fb: FormBuilder,
     ) { 
       this.searchvalue = this.fb.group({

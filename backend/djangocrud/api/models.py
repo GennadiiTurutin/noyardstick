@@ -45,7 +45,7 @@ class Comment(models.Model):
 
 class Subscriber(models.Model):
     email = models.EmailField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+   # user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     date_subscribed = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

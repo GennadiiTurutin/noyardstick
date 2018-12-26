@@ -7,7 +7,7 @@
                     <ul class="nav navbar-nav navbar-left">
                       
                       <li>
-                          <a (click)="api.openContact()"> Contact</a>
+                          <a (click)="dialog.openContact()"> Contact</a>
                       </li>
                     </ul>
                   
@@ -45,7 +45,7 @@
                             Contributions, comments and sophisticated bad language are always welcome!
                             </p> 
                             <p>
-                              <a (click)="api.openSubscriptionDialog()" class="btn-outline-success btn-lg" role="button">Subscribe</a>
+                              <a (click)="dialog.openSubscriptionDialog()" class="btn-outline-success btn-lg" role="button">Subscribe</a>
                             </p>
                         </div>
                   
@@ -105,7 +105,7 @@
                             id="link"
                             role="presentation"
                             routerLinkActive="active">
-                          <a (click)="api.openDialog()">Login</a>
+                          <a (click)="dialog.openDialog()">Login</a>
                         </li> 
                   
                         <li *ngIf="userService.isLoggedIn()"

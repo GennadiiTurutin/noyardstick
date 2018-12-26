@@ -37,6 +37,7 @@ import { AvatarModule } from 'ngx-avatar';
 import { DiscussionComponent } from './discussion/discussion.component';
 import { ContactComponent } from './popups/contact/contact.component';
 import { CategorysearchComponent } from './search_pages/categorysearch/categorysearch.component';
+import { ApiService } from './services/api.service';
 
 
 const appRoutes: Routes = [
@@ -91,6 +92,7 @@ const appRoutes: Routes = [
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent],
   providers: [ 
+    ApiService,
     DatePipe, GlobalService, 
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],

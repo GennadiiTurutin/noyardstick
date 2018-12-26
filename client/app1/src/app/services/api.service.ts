@@ -52,33 +52,11 @@ export class ApiService {
   }
 
   postSubscriber(subscriber): Observable<any> {
-    return this.http.post(this.baseurl + '/subscribers/', subscriber)}
+    return this.http.post(this.baseurl + '/subscribers/', subscriber)};
+    console.log(subscriber);
 
   deleteSubscriber(id:string): Observable<any> {
       return this.http.delete(this.baseurl + '/subscribers/' + id + '/')}
-
-  openDialog(): void {
-    let dialogRef = this.dialog.open(SignindialogComponent, {
-      width: '400px'
-    });
-    dialogRef.afterClosed()
-  }
-
-  openSubscriptionDialog(): void {
-    let dialogRef = this.dialog.open(SubscriptionComponent, {
-      width: '400px',
-      disableClose: false
-    });
-    dialogRef.afterClosed()
-  }
-
-  openContact(): void {
-    let dialogRef = this.dialog.open(ContactComponent, {
-      width: '400px',
-      disableClose: false
-    });
-    dialogRef.afterClosed()
-  }
 
   private getAuthHeaders() {
     const token = localStorage.getItem('token');
