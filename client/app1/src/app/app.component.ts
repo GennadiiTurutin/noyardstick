@@ -6,6 +6,7 @@ import { ApiService } from '../app/services/api.service';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SearchComponent } from '../app/search_pages/search/search.component';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private globalService: GlobalService,
     private api: ApiService,
-    private fb: FormBuilder) { 
+    private fb: FormBuilder,
+    ) { 
       this.searchvalue = this.fb.group({
         q: ['', [Validators.required, Validators.minLength(3)] ],
       });
@@ -49,4 +51,11 @@ export class AppComponent implements OnInit {
     )
   }
 
+  logoutClicked = () => {
+    this.globalService.me = new User();
+    localStorage.removeItem('token');
+    localStorage.removeItem('account');
+    this.router.navigate(['/']);
+  }
+ 
 }

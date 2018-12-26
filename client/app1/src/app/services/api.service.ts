@@ -51,6 +51,12 @@ export class ApiService {
     return this.http.get(this.baseurl + '/posts/?search=' + id )
   }
 
+  postSubscriber(subscriber): Observable<any> {
+    return this.http.post(this.baseurl + '/subscribers/', subscriber)}
+
+  deleteSubscriber(id:string): Observable<any> {
+      return this.http.delete(this.baseurl + '/subscribers/' + id + '/')}
+
   openDialog(): void {
     let dialogRef = this.dialog.open(SignindialogComponent, {
       width: '400px'

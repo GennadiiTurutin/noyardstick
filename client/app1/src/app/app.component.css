@@ -12,14 +12,14 @@ h5 {
     color: red;
   }
   
-  a {
+a {
     font-size: 15px;
     font-family: "Times New Roman", Times, serif;
     color: grey;
     text-align: center; 
   }
   
-  #icon {
+#icon {
     font-size: 40px;
     font-family: "Times New Roman", Times, serif;
     color: white;
@@ -27,7 +27,7 @@ h5 {
     padding: 100%;
   }
   
-  p.a {
+p.a {
     font-size: 15px;
     font-family: "Times New Roman", Times, serif;
     color: grey;
@@ -36,14 +36,14 @@ h5 {
   }
   
   
-  #footer {
+#footer {
     background-color: #f0f0f5;
     margin-top: 10%;
     margin-bottom: 0%;
   }
 
   
-  :host {
+:host {
     --main-bg-color: white;
     --main-text-color: white; 
     --secondary-text-color: black;
@@ -86,7 +86,7 @@ h5 {
     display: inline-block;
   }
   
-  #link>a {
+#link>a {
     color: var(--main-text-color);
   }
   

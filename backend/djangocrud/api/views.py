@@ -8,10 +8,11 @@ from .serializers import (
     CommentSerializer, 
     CommentDetailSerializer,
     UserSerializer, 
-    ImageSerializer
+    ImageSerializer,
+    SubscriberSerializer
     )
 
-from .models import Post, Tag, Comment, Image, Category
+from .models import Post, Tag, Comment, Image, Category, Subscriber
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.generics import (
@@ -100,6 +101,11 @@ class PostListCategory(generics.ListAPIView):
     def get_queryset(self):
         category = self.kwargs['category']
         return Category.objects.filter(name=category)
+
+class SubscriberViewSet(viewsets.ModelViewSet):
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscriberSerializer
+
 
 
 

@@ -15,6 +15,7 @@ router.register('categories', views.CategoryViewSet)
 router.register('comments', views.CommentViewSet)
 router.register('users', views.UserViewSet)
 router.register('images', views.ImageViewSet)
+router.register('subscribers', views.SubscriberViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

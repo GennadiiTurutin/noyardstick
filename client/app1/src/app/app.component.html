@@ -112,7 +112,7 @@
                             id="link"
                             role="presentation"
                             routerLinkActive="active">
-                         <a routerLink="/logout">Logout</a>
+                            <a (click)="logoutClicked()"> Logout </a>
                         </li>
                         
                   
@@ -125,7 +125,7 @@
                           type="text"
                           formControlName="q" 
                           placeholder="Search">
-                        </div>
+                        </div>&nbsp;
                         <button class="btn btn-default" type="submit" >Search</button>
                       </form>
                      </div>  
@@ -173,7 +173,6 @@
                 <ul class="list-unstyled list-inline social text-center" >
                     <li class="list-inline-item" ><a id='icon' href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
                     <li class="list-inline-item" ><a id='icon' href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item" ><a id='icon' href="javascript:void();"><i class="fa fa-telegram"></i></a></li>
                     <li class="list-inline-item" ><a id='icon' href="javascript:void();"><i class="fa fa-envelope"></i></a></li>
                 </ul>
             </div>

@@ -28,7 +28,6 @@ import { ArchiveComponent } from './archive/archive.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LeftSidebarComponent } from './sidebars/left-sidebar/left-sidebar.component';
-import { LogoutComponent } from './auth/logout/logout.component';
 import { SignindialogComponent } from './auth/signindialog/signindialog.component';
 import 'hammerjs';
 import { SubscriptionComponent } from './popups/subscription/subscription.component';
@@ -46,7 +45,6 @@ const appRoutes: Routes = [
   { path: 'about_me', component: AboutMeComponent },
   { path: 'watchers', component: WatchersComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'search/:id', component: SearchComponent },
   { path: 'tags/:id', component: TagsearchComponent }
 
@@ -66,7 +64,6 @@ const appRoutes: Routes = [
     PostDetailComponent, 
     SignupComponent,
     LeftSidebarComponent,
-    LogoutComponent,
     SignindialogComponent,
     SubscriptionComponent,
     TagsearchComponent,
