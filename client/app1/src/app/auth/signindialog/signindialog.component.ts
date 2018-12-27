@@ -24,7 +24,7 @@ export class SignindialogComponent implements OnInit {
               public dialog: MatDialog ) { 
 
                 this.userLogin = this.fb.group({
-                  username: ['', Validators.required ],
+                  username: ['', Validators.required],
                   password: ['', Validators.required]
                 });
               }
@@ -43,7 +43,7 @@ export class SignindialogComponent implements OnInit {
         this.loading = false;
         localStorage.setItem('token', response['token']);
         this.globalService.me = response['user'];
-        this.onCloseCancel()
+        this.Close()
       },
       error => {
         this.loading = false;
@@ -52,7 +52,7 @@ export class SignindialogComponent implements OnInit {
     );
   }
 
-  onCloseCancel(): void {
+  Close(): void {
     this.DialogRef.close();
   }
 

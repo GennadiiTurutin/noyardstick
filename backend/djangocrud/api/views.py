@@ -45,7 +45,7 @@ class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     permission_classes = ()
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by("date_posted")
     serializer_class = PostSerializer
     filter_backends = [SearchFilter]
     search_fields = ('title', 'subtitle', 'content')

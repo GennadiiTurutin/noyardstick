@@ -35,15 +35,17 @@ export class SubscriptionComponent implements OnInit {
       response => {
         this.loading = false;
         this.router.navigate(['/']);
+        console.log(this.userSubscribe.value);
+        this.Close();
       },
       error => {
         this.loading = false;
-        console.log('error', error)
+        console.log('error', error);
       }
     )
   }
 
-  Cancel(): void {
+  Close(): void {
     this.DialogRef.close();
   }
 

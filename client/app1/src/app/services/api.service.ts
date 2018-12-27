@@ -53,7 +53,6 @@ export class ApiService {
 
   postSubscriber(subscriber): Observable<any> {
     return this.http.post(this.baseurl + '/subscribers/', subscriber)};
-    console.log(subscriber);
 
   deleteSubscriber(id:string): Observable<any> {
       return this.http.delete(this.baseurl + '/subscribers/' + id + '/')}

@@ -109,6 +109,10 @@ p.a {
     border-bottom: 1px solid #d6d6d6;
   }
   
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
   
 
 

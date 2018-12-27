@@ -8,7 +8,6 @@
       
       <div class="form-group">
         <mat-form-field class="example-full-width">
-
           <input 
           matInput
           formControlName="email"
@@ -21,11 +20,9 @@
           <mat-error *ngIf="userSubscribe.get('email').hasError('email')">
             Wrong email format
           </mat-error>
-
         </mat-form-field>
       </div>
         <br>
-
 
       <button mat-ripple mat-raised-button 
               type="submit" 
@@ -33,13 +30,15 @@
               color="primary">
       Subscribe
       </button>&nbsp;
+      <button mat-ripple mat-raised-button type="button" (click)="Close()">
+      Close
+      </button>
+      
     </div>
 
 </form>
 
-    <button mat-ripple mat-raised-button (click)="Cancel()">
-      Cancel
-    </button>
+  
 
 
 

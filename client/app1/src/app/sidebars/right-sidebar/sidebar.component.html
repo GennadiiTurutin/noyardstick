@@ -22,16 +22,19 @@
   
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-            <a *ngFor="let tag of tags"
+            <div class="pull-left" *ngFor="let tag of tags">
+            <h4>  
+            <a 
                 [routerLink]="['/tags', tag.name ]"
-                class="list-group-item clearfix">
-    
-            <div class="col-xs-12"> 
-              <div class="pull-left">
-              <h5 class="list-group-item-heading">{{ tag.name }}</h5>
-              </div>
-            </div>
+                style="margin: 2%; ">
+                <b><span class="label label-default">{{ tag.name }}</span></b>
             </a>
+          </h4>
+          </div>
+
+         
+            
+
           </div>
         </div>
   

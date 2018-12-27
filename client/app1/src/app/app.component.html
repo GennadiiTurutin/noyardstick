@@ -7,7 +7,7 @@
                     <ul class="nav navbar-nav navbar-left">
                       
                       <li>
-                          <a (click)="dialog.openContact()"> Contact</a>
+                          <a (click)="dialog.openContact()" style="font-size: 18px; color: grey;"><b>Contact</b></a>
                       </li>
                     </ul>
                   
@@ -43,11 +43,16 @@
                             This blog means to be a small contribution to the solution of the eternal question: 
                             who runs Russia and how? Opinions expressed here belong to me and me alone. 
                             Contributions, comments and sophisticated bad language are always welcome!
-                            </p> 
-                            <p>
-                              <a (click)="dialog.openSubscriptionDialog()" class="btn-outline-success btn-lg" role="button">Subscribe</a>
                             </p>
+                            <button mat-ripple mat-raised-button 
+                                        type="button"
+                                        (click)="dialog.openSubscriptionDialog()"
+                                        color="warn"> Subscribe
+                                </button>
+                            
                         </div>
+                         
+            
                   
                         <div class="col-md-4">
                           <div class="logo">
@@ -140,8 +145,7 @@
                                   <b>{{ category.name }}</b>
                               </a>
                             </li>
-                          
-                          
+              
                         </ul>
                   </nav>
                   

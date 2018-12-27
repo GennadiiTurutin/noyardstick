@@ -7,3 +7,26 @@ h1, h2, h3, h4, p {
     color: black;
 
 }
+
+
+  
+ 
+.tag {
+    padding: 10px;
+    font-size: 20px;
+    width: 10px;
+    text-align: center;
+    text-decoration: none;
+    background: grey;
+    color: white;
+    width: 100px;
+  }
+
+.tag:hover {
+    opacity: 0.7;
+    
+  }
+
+a:hover { 
+    text-decoration: none;
+ } 

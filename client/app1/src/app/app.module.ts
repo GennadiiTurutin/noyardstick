@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { GlobalService } from './services/global.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatPaginatorModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,6 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -88,7 +89,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule,
     MatCardModule,
-    AvatarModule
+    AvatarModule, 
+    MatPaginatorModule,
+    MatTableModule
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent],
   providers: [ 
