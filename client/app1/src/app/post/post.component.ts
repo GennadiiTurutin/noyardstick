@@ -29,7 +29,7 @@ export class PostComponent implements OnInit{
   getPosts = () => {
     this.api.getPosts().subscribe(
       data => { 
-        this.posts = data;
+        this.posts = data.results;
         console.log(this.posts)
       }, 
       error => {

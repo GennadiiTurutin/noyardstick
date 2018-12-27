@@ -18,7 +18,7 @@ export class LeftSidebarComponent implements OnInit {
   getImportantPosts = () => {
       this.api.getImportant().subscribe(
         data => { 
-          this.posts_important = data;
+          this.posts_important = data.results;
         }, 
         error => {
           console.log(error)
@@ -29,7 +29,7 @@ export class LeftSidebarComponent implements OnInit {
   getLongReads = () => {
       this.api.getLongReads().subscribe(
         data => { 
-          this.posts_long = data;
+          this.posts_long = data.results;
         }, 
         error => {
           console.log(error)

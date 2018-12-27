@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   getCategories = () => {
     this.api.getCategories().subscribe(
       data => {
-        this.categories = data;
+        this.categories = data.results;
       },
       error => {
         console.log(error)
