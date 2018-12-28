@@ -3,6 +3,9 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+from django.core.mail import send_mail
+
+
 class Image(models.Model):
     image = models.ImageField('Uploaded image')
 
@@ -33,6 +36,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        send_mail('Subject here',
+                  'Here is the message.',
+                  'gennadii.turutin@gmail.com',
+                  ['gennadii.turutin@gmail.com'],
+                  fail_silently=False,)
 
 class Comment(models.Model):
     content = models.TextField(max_length=500)

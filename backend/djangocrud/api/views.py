@@ -38,6 +38,12 @@ from rest_framework.pagination import (
     PageNumberPagination
     )
 
+from django.conf import settings
+from django.shortcuts import render
+from django.contrib import messages
+from django.core.mail import send_mail
+
+
 class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer   
