@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 from django.core.mail import send_mail
+from django.template import loader 
+
 
 
 class Image(models.Model):
@@ -61,6 +63,22 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        html_message = loader.render_to_string(
+            '/subscription.html',
+            {'email': self.email,})
+        subject = 'NoYardstick Subscription'
+        from_email = 'gennadii.turutin@gmail.com'
+        to_email = [self.email]
+        message = "Now you are subscribed"
+        send_mail( subject, 
+                   message, 
+                   from_email, 
+                   to_email, 
+                   fail_silently=True,
+                   html_message=html_message)
 
 
 
