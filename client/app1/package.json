@@ -37,6 +37,7 @@
     "mdbootstrap": "^4.6.0",
     "ngx-avatar": "^3.2.0",
     "ngx-disqus": "^2.4.3",
+    "ngx-pagination": "^3.2.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"

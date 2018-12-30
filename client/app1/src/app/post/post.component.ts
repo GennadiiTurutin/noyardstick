@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Observable, Observer } from 'rxjs';
-import { PageEvent } from "angular-material";
-import { MatPaginatorModule } from '@angular/material';
-import { MatTableModule } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { TruncatePipe } from '../pipes/truncate';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-post',
@@ -12,12 +11,12 @@ import { MatTableModule } from '@angular/material/table';
   providers: [ApiService]
 })
 export class PostComponent implements OnInit{
-  posts: Observable<any>
+  posts;
   tags = [];
   data = [];
-  totalPosts = 10;
-  postsPerPage = 2;
-  pageSizeOptions = [1, 2, 5, 10]
+  p: number = 1;
+  userSub: Subscription;
+  
 
   
   constructor (private api: ApiService ) { }
@@ -29,19 +28,12 @@ export class PostComponent implements OnInit{
   getPosts = () => {
     this.api.getPosts().subscribe(
       data => { 
-        this.posts = data.results;
-        console.log(this.posts)
+        this.posts = data;
       }, 
       error => {
-        console.log(error)
-        console.log(this.posts)
-        
+        console.log(error)        
       }
     )
-  }
-
-  onChangedPage(pageData: PageEvent) {
-    console.log(pageData);
   }
 }
 

@@ -1,44 +1,31 @@
 <div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
-  <h1 style="color: grey;"><b>The latest:</b> </h1>
-  <hr>
+  <h1 id="heading"><b>The latest:</b> </h1>
+   
+   <a *ngFor="let post of posts | paginate: { itemsPerPage: 2, currentPage: p }"
+    [routerLink]="['/posts', post.id ]">
 
-   <a *ngFor="let post of posts"
-    [routerLink]="['/posts', post.id ]"> 
+    
 
-    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-bottom: 8%; background-color: #FCFBFB;">
-      <div style="margin: 5%">
-        <h4 style="color: red; text-align: center;"><b>{{ post.categories[0].name }}</b></h4>
+    <div id="post" class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+      <div>
+        <h4 id="category"><b>{{ post.categories[0].name }}</b></h4>
       </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" >
+      
         <img src="{{ post.post_images[0].image }}">
-      </div>
-
-      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin: 2%">
-        
-          <h4><b>Tags:</b>&nbsp; 
+    
+      <h4 id="tag"><b>Tags:</b>&nbsp; 
           <a  *ngFor="let tag of post.tags"
               [routerLink]="['/tags', tag ]" >
               <span class="label label-default">{{ tag.name }} </span>&nbsp;
           </a>
-        </h4>
-      </div>
-    
-    
-      <h2><b>{{ post.title }}</b></h2>
+      </h4>
+      
+      <h2 style="text-align: center;"><b>{{ post.title }}</b></h2>
       <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
-      <h4>{{ post.subtitle }}</h4>
+      <h4>{{ post.subtitle | truncate : 100 : true}}</h4>
     </div>
-    <br>
+    
   </a>
-  
- 
-</div>
-<div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
-<mat-paginator #paginator 
-               [length]="totalPosts" 
-               [pageSize]="postsPerPage" 
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="onChangedPage($event)">
-</mat-paginator>
+    <pagination-controls (pageChange)="p = $event" style="text-align: right; font-size: 20px; font-family: 'Roboto', sans-serif;"></pagination-controls>
 </div>

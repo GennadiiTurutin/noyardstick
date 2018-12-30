@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Pipe, PipeTransform } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,6 +41,7 @@ import { DiscussionComponent } from './discussion/discussion.component';
 import { ContactComponent } from './popups/contact/contact.component';
 import { CategorysearchComponent } from './search_pages/categorysearch/categorysearch.component';
 import { ApiService } from './services/api.service';
+import { TruncatePipe } from './pipes/truncate';
 
 
 const appRoutes: Routes = [
@@ -72,7 +75,8 @@ const appRoutes: Routes = [
     SearchComponent,
     DiscussionComponent,
     ContactComponent,
-    CategorysearchComponent
+    CategorysearchComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,8 @@ const appRoutes: Routes = [
     MatCardModule,
     AvatarModule, 
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    NgxPaginationModule
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent],
   providers: [ 

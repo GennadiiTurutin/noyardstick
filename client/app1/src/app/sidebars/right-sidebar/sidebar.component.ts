@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
   getTags = () => {
     this.api.getTags().subscribe(
       data => { 
-        this.tags = data.results;
+        this.tags = data;
       }, 
       error => {
         console.log(error)

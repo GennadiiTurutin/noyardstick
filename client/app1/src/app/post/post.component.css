@@ -1,3 +1,38 @@
+:host {
+  --caption-color: white;
+  --header-color: #FC4949; 
+  --background-color: white;
+  --standard-margin: 5%;
+  --small-margin: 2%;
+  --font-color-1: #9B9999;
+}
+
+#post {
+  background-color: var(--background-color);
+  margin-bottom: var(--standard-margin); 
+  border-bottom: 0.5px solid #d6d6d6;
+}
+
+#post img:hover {
+  filter: brightness(70%);
+}
+
+#post h2 :hover {
+  color: grey;
+}
+
+
+#category {
+  color: var(--header-color);
+  text-align: center;
+  margin: var(--standard-margin);
+}
+
+#heading {
+  color: var(--font-color-1);
+  text-align: left;
+}
+
 img {
     width: 100%;
     overflow: hidden;
@@ -9,8 +44,6 @@ h1, h2, h3, h4, p {
 }
 
 
-  
- 
 .tag {
     padding: 10px;
     font-size: 20px;
@@ -26,6 +59,10 @@ h1, h2, h3, h4, p {
     opacity: 0.7;
     
   }
+
+#tag-div {
+  margin: var(--small-margin);
+}
 
 a:hover { 
     text-decoration: none;
