@@ -20,11 +20,6 @@
 }
 
 
-* {
-  font-family: var(--font-main); 
-}
-
-
 body {
     background-color: #EEEEEC;
 }
@@ -36,7 +31,7 @@ h5 {
   
 a {
     font-size: 15px;
-    font-family: var(--font-main);
+   /* font-family: var(--font-main);*/
     color: var(font-color-1);
     text-align: center; 
   }

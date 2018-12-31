@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { MatDialog } from '@angular/material';
+import 'rxjs/add/operator/toPromise';
+import { Headers, Http, Response } from '@angular/http';
 
 @Injectable()
 export class ApiService {
@@ -14,7 +16,7 @@ export class ApiService {
               public dialog: MatDialog ) { }
 
   getPosts(): Observable<any> {return this.http.get(this.baseurl + '/posts/')}
- 
+
   getComments(): Observable<any> {return this.http.get(this.baseurl + '/comments/')}
 
   getPost(id: number): Observable<any> {return this.http.get(this.baseurl + '/posts/' + id + '/')}

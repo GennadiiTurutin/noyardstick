@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Observable } from 'rxjs';
 import { TruncatePipe } from '../pipes/truncate';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-post',
@@ -15,25 +14,28 @@ export class PostComponent implements OnInit{
   tags = [];
   data = [];
   p: number = 1;
-  userSub: Subscription;
-  
+  loading: boolean = true;
 
   
-  constructor (private api: ApiService ) { }
-   
+  constructor (private api: ApiService) { }
+  
   ngOnInit() {
      this.getPosts();
   }
 
   getPosts = () => {
     this.api.getPosts().subscribe(
-      data => { 
+      data => {
+        this.loading = false; 
         this.posts = data;
       }, 
       error => {
+        this.loading = false;
         console.log(error)        
       }
     )
   }
 }
+
+
 

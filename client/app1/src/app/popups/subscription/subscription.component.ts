@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SubscriptionComponent implements OnInit {
   userSubscribe: FormGroup;
-  loading: boolean;
   providers: [ApiService];
+  loading: boolean = false;
 
   constructor(private fb: FormBuilder,
               public DialogRef: MatDialogRef<SubscriptionComponent>,
@@ -25,17 +25,13 @@ export class SubscriptionComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.loading = false;
-  }
+  ngOnInit() {}
 
   subscribeUser() {
-    this.loading = true;
     this.api.postSubscriber(this.userSubscribe.value).subscribe(
       response => {
-        this.loading = false;
+        this.loading = true;
         this.router.navigate(['/']);
-        console.log(this.userSubscribe.value);
         this.Close();
       },
       error => {

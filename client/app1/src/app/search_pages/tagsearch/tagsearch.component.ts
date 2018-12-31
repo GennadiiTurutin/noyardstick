@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Observable, Observer } from 'rxjs';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tagsearch',
@@ -14,9 +14,9 @@ export class TagsearchComponent implements OnInit {
   tag: Observable<any>
   id: string;
   posts = [];
+  loading: boolean = true;
 
   constructor(private api: ApiService,
-              private router: Router,
               private route: ActivatedRoute) { }
     
   ngOnInit() {
@@ -27,12 +27,12 @@ export class TagsearchComponent implements OnInit {
   getPostsforTag = () => {
     this.api.getPostsforTag(this.id).subscribe(
       data => {
+        this.loading = false;
         this.tag = data[0];
-        console.log(this.tag)
         }, 
-        error => {
-          console.log("ERROR")
-          console.log(this.tag)
+      error => {
+        this.loading = false;
+        console.log(error)
         }
       )
   }

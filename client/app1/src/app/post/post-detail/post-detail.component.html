@@ -52,6 +52,7 @@
               rows="3">
             </textarea>
           </mat-form-field>
+          
 
           <div>
             <button mat-ripple mat-raised-button 
@@ -64,7 +65,7 @@
 
       <br><br>
     </div>
-
+    <mat-spinner *ngIf="loading"></mat-spinner>
     <div *ngFor="let comment of post.comments ">
           <div class="container">
           <div class="col-lg-8 col-md-10 col-sm-12 mx-auto" style="border-bottom: #dcdee2 1px solid;">

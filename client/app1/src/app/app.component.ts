@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   }
 
   searchPosts () {
-    window.location.reload();
     this.router.navigate(['/search/' + this.searchvalue.value.q]);
   }
 

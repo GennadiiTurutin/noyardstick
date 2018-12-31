@@ -1,6 +1,7 @@
 <div class="container"> 
   
     <h2>Results for {{ id }}</h2>
+    <mat-spinner *ngIf="loading"></mat-spinner>
 
     <a *ngFor="let post of posts  "
     [routerLink]="['/posts', post.id ]"> 

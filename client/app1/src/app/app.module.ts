@@ -51,7 +51,8 @@ const appRoutes: Routes = [
   { path: 'watchers', component: WatchersComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'search/:id', component: SearchComponent },
-  { path: 'tags/:id', component: TagsearchComponent }
+  { path: 'tags/:id', component: TagsearchComponent },
+  { path: 'categories/:id', component: CategorysearchComponent }
 
 ];
 

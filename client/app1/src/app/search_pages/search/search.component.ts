@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,26 +11,29 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   posts: Observable<any>;
   id: string;
-  isInitiated: boolean;
+  loading: boolean = true;
 
-  constructor(private api: ApiService, 
-              private route: ActivatedRoute) { }
-  
+  constructor(private api: ApiService,
+    private route: ActivatedRoute,
+    private router: Router) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    }
   
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.searchPosts(this.id)
-    this.isInitiated = true;
   }
 
-  searchPosts(q: string)  {
+  searchPosts(q: string)  { 
     this.api.searchPosts(q).subscribe(
       data => {
+        this.loading = false;
         this.posts = data;
-        console.log(data)
         },
-        error => {console.log(error)}
+      error => {
+          this.loading = false;
+          console.log(error)}
       )
     } 
 }

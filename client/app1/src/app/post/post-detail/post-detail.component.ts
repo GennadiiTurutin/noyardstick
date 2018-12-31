@@ -23,7 +23,7 @@ export class PostDetailComponent implements OnInit {
   post: Observable<any>;
   comment;
   params;
-  loading: boolean;
+  loading: boolean = false;
   
   
   constructor(private api: ApiService, 
@@ -37,7 +37,6 @@ export class PostDetailComponent implements OnInit {
   userSub: Subscription;
 
   ngOnInit() {
-    this.loading = false;
     this.userSub = this.globalService.user.subscribe(
       me => this.account = me
     );  
@@ -71,17 +70,14 @@ export class PostDetailComponent implements OnInit {
   }
 
   postComment() {
-    this.loading = true;
     this.api.postComment(this.userComment.value).subscribe(
         response => {
-          this.loading = false;
-          console.log(response)
+          this.loading = true;
           window.location.reload();
         },
         error => {
           this.loading = false;
           console.log(error)
-          console.log(this.userComment.value)
         }
     );
   }
