@@ -6,6 +6,11 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.template import loader 
 
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 class Image(models.Model):
@@ -75,8 +80,7 @@ class Subscriber(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        html_message = loader.render_to_string(
-            '/subscription.html',
+        html_message = loader.render_to_string('subscription.html',
             {'email': self.email,})
         subject = 'NoYardstick Subscription'
         from_email = 'gennadii.turutin@gmail.com'

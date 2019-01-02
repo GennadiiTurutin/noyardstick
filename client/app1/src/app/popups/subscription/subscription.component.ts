@@ -30,9 +30,10 @@ export class SubscriptionComponent implements OnInit {
   subscribeUser() {
     this.api.postSubscriber(this.userSubscribe.value).subscribe(
       response => {
+        console.log('Sucessful');
         this.loading = true;
         this.router.navigate(['/']);
-        this.Close();
+        this.Close(); 
       },
       error => {
         this.loading = false;

@@ -44,6 +44,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
 
+# User - GET, POST
 
 class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     queryset = User.objects.all()
@@ -51,11 +52,15 @@ class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     authentication_classes = (TokenAuthentication, )
     permission_classes = ()
 
+# Post - GET, POST
+
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by("-date_posted")
     serializer_class = PostSerializer
     filter_backends = [SearchFilter]
     search_fields = ('title', 'subtitle', 'content')
+
+# Post Long Read - GET
 
 class PostLongReadViewSet(generics.ListAPIView):
     serializer_class = PostSerializer
@@ -63,23 +68,33 @@ class PostLongReadViewSet(generics.ListAPIView):
     def get_queryset(self):
         return Post.objects.filter(long_read=True)
 
+# Post Important - GET
+
 class PostImportantViewSet(generics.ListAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
         return Post.objects.filter(super_important=True)
 
-class TagViewSet(viewsets.ModelViewSet):
-    queryset = Tag.objects.all()
+# Post for Tag - GET
+
+class PostList(generics.ListAPIView):
     serializer_class = TagSerializer
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
+    def get_queryset(self):
+        tagname = self.kwargs['tagname']
+        return Tag.objects.filter(name=tagname)
+
+# Post for Category - GET
+
+class PostListCategory(generics.ListAPIView):
     serializer_class = CategorySerializer
 
-class ArchiveViewSet(viewsets.ModelViewSet):
-    queryset = Archive.objects.all()
-    serializer_class = ArchiveSerializer
+    def get_queryset(self):
+        category = self.kwargs['category']
+        return Category.objects.filter(name=category)
+
+# Post Archive - GET
 
 class PostListArchive(generics.ListAPIView):
     serializer_class = ArchiveSerializer
@@ -89,14 +104,25 @@ class PostListArchive(generics.ListAPIView):
         month = self.kwargs['month']
         return Archive.objects.filter(year=year, month=month)
 
+# Tag - GET
 
-class DualSerializerViewSet(viewsets.ModelViewSet):
-    def get_serializer_class(self):
-        if self.action == 'list':
-            return serializers.ListaGruppi
-        if self.action == 'retrieve':
-            return serializers.DettaglioGruppi
-        return serializers.Default # I dont' know what you want for create/destroy/update.
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+# Category - GET
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+# Archive - GET
+
+class ArchiveViewSet(viewsets.ModelViewSet):
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveSerializer
+
+# Comment - GET, POST
 
 class CommentViewSet(viewsets.ModelViewSet, APIView):
     authentication_classes = (TokenAuthentication, SessionAuthentication )
@@ -104,13 +130,23 @@ class CommentViewSet(viewsets.ModelViewSet, APIView):
     queryset = Comment.objects.all().order_by("-date_posted")
     serializer_class = CommentSerializer
 
+# Comment - GET
+
 class CommentDetailViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by("-date_posted")
     serializer_class = CommentDetailSerializer
 
+# Image - GET
+
 class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
+
+# Subscriber - GET, POST
+
+class SubscriberViewSet(viewsets.ModelViewSet):
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscriberSerializer
 
 class CustomObtainAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -120,23 +156,8 @@ class CustomObtainAuthToken(ObtainAuthToken):
         serializer = UserSerializer(user, many=False)
         return Response({'token': token.key, 'user': serializer.data})
 
-class PostList(generics.ListAPIView):
-    serializer_class = TagSerializer
 
-    def get_queryset(self):
-        tagname = self.kwargs['tagname']
-        return Tag.objects.filter(name=tagname)
 
-class PostListCategory(generics.ListAPIView):
-    serializer_class = CategorySerializer
-
-    def get_queryset(self):
-        category = self.kwargs['category']
-        return Category.objects.filter(name=category)
-
-class SubscriberViewSet(viewsets.ModelViewSet):
-    queryset = Subscriber.objects.all()
-    serializer_class = SubscriberSerializer
 
 
 

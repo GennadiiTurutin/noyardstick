@@ -21,7 +21,6 @@ export class ArchiveComponent implements OnInit{
   this.api.getArchive().subscribe(
     data => { 
       this.archives = data;
-      console.log(this.archives)
     }, 
     error => {
       console.log(error)

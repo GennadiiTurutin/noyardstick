@@ -69,7 +69,7 @@ ROOT_URLCONF = 'djangocrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/Home/Desktop/noyardstick/backend/djangocrud/email_templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
