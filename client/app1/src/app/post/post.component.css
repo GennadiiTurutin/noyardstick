@@ -1,69 +1,92 @@
 :host {
-  --caption-color: white;
-  --header-color: #FC4949; 
-  --background-color: white;
-  --standard-margin: 5%;
-  --small-margin: 2%;
-  --font-color-1: #9B9999;
-}
 
+    /* Backfround color */
+    --background-color-1:white;
+    --background-color-2: #F3F1F1;
+    --background-color-3: #eaf0f9;
+    --background-color-4: #333435;
+  
+    /* Font color */
+    --font-color-1: white;
+    --font-color-2: #FC4949;
+    --font-color-3: black;
+    --font-color-4: #9B9999;
+    /* Size */
+    --font-size-0: 40px;
+    --font-size-1: 30px;
+    --font-size-2: 20px;
+    --font-size-3: 14px;
+    /* Font style */
+    --font-style-1: 'Roboto', sans-serif;
+    /* Margin */
+    --margin-1: 7%;
+    --margin-2: 5%;
+    --margin-3: 2%; 
+    --margin-4: 0%;
+  }
+  
 #post {
-  background-color: var(--background-color);
-  margin-bottom: var(--standard-margin); 
-  border-bottom: 0.5px solid #d6d6d6;
-}
-
+    background-color: var(--background-color-1);
+    margin-bottom: var(--margin-2); 
+    border-bottom: 0.5px solid #d6d6d6;
+  }
+  
 #post img:hover {
-  filter: brightness(70%);
-}
-
+    filter: brightness(70%);
+  }
+  
 #post h2 :hover {
-  color: grey;
-}
-
-
+    color: grey;
+  }
+  
+  
 #category {
-  color: var(--header-color);
-  text-align: center;
-  margin: var(--standard-margin);
-}
-
+    color: var(--font-color-2);
+    text-align: center;
+    margin: var(--margin-2);
+  }
+  
 #heading {
-  color: var(--font-color-1);
-  text-align: left;
-}
-
+    color: var(--font-color-4);
+    text-align: left;
+  }
+  
 img {
     width: 100%;
     overflow: hidden;
-}
- 
+  }
+   
 h1, h2, h3, h4, p {
-    color: black;
-
-}
-
-
+      color: var(--font-color-3);
+  }
+  
+  
 .tag {
-    padding: 10px;
-    font-size: 20px;
-    width: 10px;
-    text-align: center;
-    text-decoration: none;
-    background: grey;
-    color: white;
-    width: 100px;
-  }
-
+      padding: 10px;
+      font-size: 20px;
+      width: 10px;
+      text-align: center;
+      text-decoration: none;
+      background: grey;
+      color: white;
+      width: 100px;
+    }
+  
 .tag:hover {
-    opacity: 0.7;
-    
-  }
-
+      opacity: 0.7;
+      
+    }
+  
 #tag-div {
-  margin: var(--small-margin);
+    margin: var(--margin-3);
+  }
+  
+a:hover { 
+      text-decoration: none;
+   } 
+
+.label:hover {
+    filter: brightness(70%);
 }
 
-a:hover { 
-    text-decoration: none;
- } 
+

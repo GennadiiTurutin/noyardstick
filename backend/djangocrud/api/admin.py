@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Tag, Image, Category, Subscriber
+from .models import Post, Comment, Tag, Image, Category, Subscriber, Archive
 
 # Register your models here.
 
@@ -9,3 +9,4 @@ admin.site.register(Tag)
 admin.site.register(Category)
 admin.site.register(Image)
 admin.site.register(Subscriber)
+admin.site.register(Archive)

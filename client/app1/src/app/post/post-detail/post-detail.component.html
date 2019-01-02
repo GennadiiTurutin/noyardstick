@@ -15,7 +15,7 @@
         <a
         *ngFor="let tag of post.tags"
         [routerLink]="['/tags', tag ]">
-        <a href="#" class="tag">{{ tag.name }}</a>&nbsp;
+        <b><span class="label label-default">{{ tag.name }}</span></b>&nbsp;
         </a>
         </h3>
         <br><br>

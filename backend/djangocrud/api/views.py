@@ -9,10 +9,11 @@ from .serializers import (
     CommentDetailSerializer,
     UserSerializer, 
     ImageSerializer,
-    SubscriberSerializer
+    SubscriberSerializer,
+    ArchiveSerializer
     )
 
-from .models import Post, Tag, Comment, Image, Category, Subscriber
+from .models import Post, Tag, Comment, Image, Category, Subscriber, Archive
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.generics import (
@@ -76,11 +77,36 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+class ArchiveViewSet(viewsets.ModelViewSet):
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveSerializer
+
+class PostListArchive(generics.ListAPIView):
+    serializer_class = ArchiveSerializer
+
+    def get_queryset(self):
+        year = self.kwargs['year']
+        month = self.kwargs['month']
+        return Archive.objects.filter(year=year, month=month)
+
+
+class DualSerializerViewSet(viewsets.ModelViewSet):
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.ListaGruppi
+        if self.action == 'retrieve':
+            return serializers.DettaglioGruppi
+        return serializers.Default # I dont' know what you want for create/destroy/update.
+
 class CommentViewSet(viewsets.ModelViewSet, APIView):
     authentication_classes = (TokenAuthentication, SessionAuthentication )
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.all().order_by("-date_posted")
     serializer_class = CommentSerializer
+
+class CommentDetailViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all().order_by("-date_posted")
+    serializer_class = CommentDetailSerializer
 
 class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
@@ -102,7 +128,7 @@ class PostList(generics.ListAPIView):
         return Tag.objects.filter(name=tagname)
 
 class PostListCategory(generics.ListAPIView):
-    serializer_class = TagSerializer
+    serializer_class = CategorySerializer
 
     def get_queryset(self):
         category = self.kwargs['category']
@@ -111,6 +137,8 @@ class PostListCategory(generics.ListAPIView):
 class SubscriberViewSet(viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
+
+
 
 
 

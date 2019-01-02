@@ -19,12 +19,19 @@ export class ApiService {
 
   getComments(): Observable<any> {return this.http.get(this.baseurl + '/comments/')}
 
+  getCommentsDetail(): Observable<any> {return this.http.get(this.baseurl + '/_comments/')}
+
   getPost(id: number): Observable<any> {return this.http.get(this.baseurl + '/posts/' + id + '/')}
 
   getTags(): Observable<any> {return this.http.get(this.baseurl + '/tags/')}
 
   getCategories(): Observable<any> {return this.http.get(this.baseurl + '/categories/')}
 
+  getArchive(): Observable<any> {return this.http.get(this.baseurl + '/archive/')}
+
+  getPostsforArchive(year:string, month:string): Observable<any> {
+    return this.http.get(this.baseurl + '/archive/search/' + year + '/' + month )
+  }
   postComment(comment): Observable<any> {
     return this.http.post(this.baseurl + '/comments/', comment, this.getAuthHeaders())
   }

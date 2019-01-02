@@ -1,3 +1,7 @@
 h4 {
-    color: red;
+    color: #FC4949;
+}
+
+.label:hover {
+    filter: brightness(70%);
 }

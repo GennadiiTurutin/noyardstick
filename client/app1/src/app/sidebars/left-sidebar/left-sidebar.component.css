@@ -1,12 +1,7 @@
-:host {
-    --caption-color: white;
-    --header-color: #FC4949; 
-    --background-color: white;
-    --standard-margin: 5%;
-    --small-margin: 2%;
-    --font-color-1: #9B9999;
-  }
-
 h4 {
-    color: var(--header-color);
+    color: #FC4949;
+}
+
+.label-primary:hover {
+    filter: brightness(70%);
 }

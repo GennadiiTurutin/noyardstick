@@ -16,6 +16,14 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+        
+class Archive(models.Model):
+    month = models.TextField(max_length=20)
+    year = models.TextField(max_length=10)
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.month + self.year 
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -32,9 +40,10 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name='posts')
-    categories = models.ManyToManyField(Category, related_name='posts')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="posts")
     search_fields = ('title', 'subtitle', 'content')
     post_images = models.ManyToManyField(Image, related_name='posts')
+    archive = models.ForeignKey(Archive, on_delete=models.CASCADE, related_name="posts")
 
     def __str__(self):
         return self.title
@@ -79,6 +88,5 @@ class Subscriber(models.Model):
                    to_email, 
                    fail_silently=True,
                    html_message=html_message)
-
 
 
