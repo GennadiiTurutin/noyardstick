@@ -1,19 +1,20 @@
 <div class="container"> 
-  <h2>Posts for tag <span class="label label-default">{{ tag.name  }}</span></h2>
-  <mat-spinner *ngIf="loading"></mat-spinner>
-  <div *ngIf="tag">
-    
-    <a *ngFor="let post of tag.posts "
-    [routerLink]="['/posts', post.id ]"> 
-
-      <div class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%">
-       
-        <h2><b>{{ post.title }}</b></h2>
-        <h4>{{ post.subtitle }}</h4>
-        <p> And</p>
+    <div class="container" *ngIf="tag.posts?.length > 0">
+      <h2>Posts for tag <span class="label label-default">{{ tag.name  }}</span></h2>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="tag">
+      <a *ngFor="let post of tag.posts "
+        [routerLink]="['/posts', post.id ]">
+      <div id="result" class="col-lg-10 col-md-10 col-sm-10 mx-auto">
+        <h1><b>{{ post.title }}</b></h1>
+        <h2>{{ post.subtitle }}</h2>
+        <p>{{ post.date_posted | date : "'published on ' MMMM d, y" }} </p>
         <br>
-       
       </div>
       </a>
-  </div>
+    </div>
+    </div>
+    <div class="container" *ngIf="tag.posts?.length === 0">
+      <h2>No matches for tag <span class="label label-default">{{ tag.name  }}</span></h2>
+    </div>
 </div>

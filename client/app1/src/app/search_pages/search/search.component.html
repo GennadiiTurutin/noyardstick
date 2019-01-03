@@ -1,19 +1,18 @@
 <div class="container"> 
-  
-    <h2>Results for {{ id }}</h2>
+    <div class="container" *ngIf="posts?.length > 0">
+      <h2>Results for {{ id }}:</h2>
     <mat-spinner *ngIf="loading"></mat-spinner>
-
-    <a *ngFor="let post of posts  "
-    [routerLink]="['/posts', post.id ]"> 
-
-      <div class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%">
-       
-        <h2><b>{{ post.title }}</b></h2>
-        <h4>{{ post.subtitle }}</h4>
-        <p> And</p>
+      <a *ngFor="let post of posts "
+      [routerLink]="['/posts', post.id ]"> 
+      <div id="result" class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%; border: grey 0.5 solid">
+        <h1><b>{{ post.title }}</b></h1>
+        <h2>{{ post.subtitle }}</h2>
+        <p>{{ post.date_posted | date : "'published on ' MMMM d, y" }} </p>
         <br>
-       
       </div>
       </a>
-
+    </div>
+    <div class="container" *ngIf="posts?.length === 0">
+      <h2>No matches for {{id}}</h2>
+    </div>
 </div>

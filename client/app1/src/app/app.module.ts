@@ -43,6 +43,7 @@ import { CategorysearchComponent } from './search_pages/categorysearch/categorys
 import { ApiService } from './services/api.service';
 import { TruncatePipe } from './pipes/truncate';
 import { ArchivesearchComponent } from './search_pages/archivesearch/archivesearch.component';
+import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component';
 
 
 const appRoutes: Routes = [
@@ -54,9 +55,8 @@ const appRoutes: Routes = [
   { path: 'search/:id', component: SearchComponent },
   { path: 'tags/:id', component: TagsearchComponent },
   { path: 'categories/:id', component: CategorysearchComponent },
-  { path: 'archive/search/:year/:month', component: ArchivesearchComponent }
-
-
+  { path: 'archive/search/:year/:month', component: ArchivesearchComponent },
+  { path: 'unsubscribe/:id', component: UnsubscribeComponent },
 ];
 
 
@@ -81,7 +81,8 @@ const appRoutes: Routes = [
     ContactComponent,
     CategorysearchComponent,
     TruncatePipe,
-    ArchivesearchComponent
+    ArchivesearchComponent,
+    UnsubscribeComponent
   ],
   imports: [
     BrowserModule,

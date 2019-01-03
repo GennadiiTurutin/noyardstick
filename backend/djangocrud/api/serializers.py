@@ -69,7 +69,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 class SubscriberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Subscriber
-        fields = ('email', 'date_subscribed')
+        fields = ('id', 'email', 'date_subscribed')
 
 class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
     posts = PostSerializer_(many=True, read_only=True)

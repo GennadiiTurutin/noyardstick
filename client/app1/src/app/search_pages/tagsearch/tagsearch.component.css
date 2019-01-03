@@ -1,0 +1,43 @@
+:host {
+
+    /* Backfround color */
+    --background-color-1:white;
+    --background-color-2: #F3F1F1;
+    --background-color-3: #eaf0f9;
+    --background-color-4: #333435;
+  
+    /* Font color */
+    --font-color-1: white;
+    --font-color-2: #FC4949;
+    --font-color-3: black;
+    --font-color-4: #9B9999;
+    /* Size */
+    --font-size-0: 40px;
+    --font-size-1: 30px;
+    --font-size-2: 20px;
+    --font-size-3: 14px;
+    /* Font style */
+    --font-style-1: 'Roboto', sans-serif;
+    /* Margin */
+    --margin-1: 7%;
+    --margin-2: 5%;
+    --margin-3: 2%; 
+    --margin-4: 0%;
+  }
+
+h1, h2, h3, h4 {
+    color: var(--font-color-3);
+    font-weight: bold;
+}
+
+p {
+    color: var(--font-color-4);
+}
+
+#result {
+    border: 1px solid var(--background-color-2);
+}
+
+#result:hover {
+    background-color: var(--background-color-2) ;
+}

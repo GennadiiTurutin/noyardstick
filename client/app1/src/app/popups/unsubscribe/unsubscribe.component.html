@@ -1,0 +1,32 @@
+<div class="object container" style="background-color:#333435; height:500px;">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 style="color: white;">You've been successfully unsubscribed!</h1>
+              <h2 style="color: red;">Oh, you don't like our news anymore. Sad...</h2>
+              <h2 style="color: red;"> Это недопустимо. Любое сопротивление будет жестоко подавлено</h2>
+              <h2 style="color: red;"> Though you can always subscribe again. Just click here ...</h2>
+              
+              <h2>
+                    <span  class="glyphicon glyphicon-hand-down" style="color: red;"></span>
+                    <span  class="glyphicon glyphicon-hand-down" style="color: red;"></span>
+                    <span  class="glyphicon glyphicon-hand-down" style="color: red;"></span>
+                </h2>
+              <button mat-ripple mat-raised-button 
+                          type="button"
+                          (click)="dialog.openSubscriptionDialog()"
+                          color="warn"> Subscribe
+              </button>  
+          </div>
+           
+          <div class="col-md-4" style="margin-top:10%">
+            <div>
+              <a href="/">
+                <img src="assets/images/putin.jpg" width="100%" >
+              </a>
+            </div>
+
+          </div>
+
+      </div>
+</div>
+

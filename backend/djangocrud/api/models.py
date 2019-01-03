@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, send_mass_mail
 from django.template import loader 
 
 import os
@@ -55,11 +55,16 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        send_mail('Subject here',
-                  'Here is the message.',
-                  'gennadii.turutin@gmail.com',
-                  ['gennadii.turutin@gmail.com'],
-                  fail_silently=False,)
+        html_message = loader.render_to_string('news.html')
+        subject = 'NoYardstick News'
+        from_email = 'gennadii.turutin@gmail.com'
+        recipient_list  = ['gennadii.turutin@gmail.com']
+        send_mail( subject,
+                   message=None,
+                   from_email=from_email, 
+                   fail_silently=True,
+                   html_message=html_message,
+                   recipient_list=recipient_list)
 
 class Comment(models.Model):
     content = models.TextField(max_length=500)
@@ -71,8 +76,8 @@ class Comment(models.Model):
         return self.content 
 
 class Subscriber(models.Model):
+    id = models.AutoField(primary_key=True)
     email = models.EmailField()
-   # user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     date_subscribed = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -81,16 +86,15 @@ class Subscriber(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         html_message = loader.render_to_string('subscription.html',
-            {'email': self.email,})
+            {'email': self.email, 'id': self.id})
         subject = 'NoYardstick Subscription'
         from_email = 'gennadii.turutin@gmail.com'
-        to_email = [self.email]
-        message = "Now you are subscribed"
-        send_mail( subject, 
-                   message, 
-                   from_email, 
-                   to_email, 
+        recipient_list  = [self.email]
+        send_mail( subject,
+                   message=None,
+                   from_email=from_email, 
                    fail_silently=True,
-                   html_message=html_message)
+                   html_message=html_message,
+                   recipient_list=recipient_list)
 
 
