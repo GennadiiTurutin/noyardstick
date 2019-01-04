@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   posts: Observable<any>;
   id: string;
   loading: boolean = true;
+  p: number = 1;
 
   constructor(private api: ApiService,
     private route: ActivatedRoute,

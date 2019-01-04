@@ -28,18 +28,9 @@
 #post {
     background-color: var(--background-color-1);
     margin-bottom: var(--margin-2); 
-    border-bottom: 0.5px solid #d6d6d6;
   }
   
-#post img:hover {
-    filter: brightness(70%);
-  }
-  
-#post h2 :hover {
-    color: grey;
-  }
-  
-  
+
 #category {
     color: var(--font-color-2);
     text-align: center;
@@ -85,8 +76,21 @@ a:hover {
       text-decoration: none;
    } 
 
-.label:hover {
+#post:hover {
     filter: brightness(70%);
 }
 
 
+.label {
+  background-color: #333435;
+}
+
+.pagination-class /deep/ .ngx-pagination .current {
+  font-family: var(--font-style-1); 
+  background-color: var(--background-color-4);
+  font-size: 20px;
+  
+}
+.pagination-class {
+  text-align: right;
+}

@@ -1,16 +1,7 @@
-<div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-    <div class="row">
-
-      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-        <div class="container">
-          <h1>Registration</h1>
-          <p>Welcome! If you register, you'll be getting our regular updates for free!</p>
-        </div> 
-      </div>
-
-      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto"> 
+<h1 mat-dialog-title><b>Registration</b></h1>
+<div mat-dialog-content>
+  <p>Please fill in the form</p>
         
-
           <form (ngSubmit)="registerUser()" [formGroup]="userRegister">
 
               <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
@@ -65,24 +56,24 @@
                       Please enter the password
                     </mat-error>
 
-                    <mat-error *ngIf="userRegister.get('password').hasError('minLength')">
+                    <mat-error *ngIf="userRegister.get('password').hasError('minLength(6)')">
                       Password has to be at least 6 characters
                     </mat-error>
 
                   </mat-form-field>
                 </div>
           
+
                 <button mat-ripple mat-raised-button 
                         type="submit" 
                         [disabled]="userRegister.invalid || loading" 
                         color="primary">
                 Register
-                </button>
+                </button>&nbsp;
+
+                <button mat-ripple mat-raised-button type="button" (click)="Close()">Close</button>
               </div>
          </form>
-        
-    </div>
-   
-  </div>
 
-</div>
+  
+         

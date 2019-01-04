@@ -13,6 +13,7 @@ export class CategorysearchComponent implements OnInit {
   id: string;
   posts = [];
   loading: boolean = true;
+  p: number = 1;
 
   constructor(private api: ApiService,
               private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class CategorysearchComponent implements OnInit {
       data => {
         this.loading = false;
         this.category = data[0];
+        console.log(this.category)
         }, 
       error => {
           this.loading = false;

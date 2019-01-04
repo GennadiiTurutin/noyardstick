@@ -1,10 +1,9 @@
-<div class="container"> 
-  
+<div class="container" *ngIf="category"> 
     <div class="container" *ngIf="category.posts?.length > 0">
-      <h2>Posts for category <span class="label label-default">{{ category.name  }}</span></h2>
+      <h1>Posts for category <span class="label label-danger">{{ category.name  }}</span></h1>
       <mat-spinner *ngIf="loading"></mat-spinner>
-      <div *ngIf="category">
-        <a *ngFor="let post of category.posts "
+      
+        <a *ngFor="let post of category.posts | paginate: { itemsPerPage: 2, currentPage: p }"
             [routerLink]="['/posts', post.id ]">
             <div id="result" class="col-lg-10 col-md-10 col-sm-10 mx-auto">
               <h1><b>{{ post.title }}</b></h1>
@@ -12,11 +11,17 @@
               <p>{{ post.date_posted | date : "'published on ' MMMM d, y" }} </p>
             </div>
         </a>
+      <div class="col-lg-10 col-md-10 col-sm-10 mx-auto">
+      <pagination-controls class="pagination-class"
+      (pageChange)="p = $event">
+      </pagination-controls>
+      </div>
     </div>
 
     <div class="container" *ngIf="category.posts?.length === 0">
-      <h2>No matches for category <span class="label label-default">{{ category.name  }}</span></h2>
+      <h1>No matches for category <span class="label label-danger">{{ category.name  }}</span></h1>
     </div>
+
 
 </div>
 

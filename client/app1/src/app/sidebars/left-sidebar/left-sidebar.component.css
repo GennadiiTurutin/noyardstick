@@ -2,6 +2,14 @@ h4 {
     color: #FC4949;
 }
 
-.label-primary:hover {
+.label:hover {
     filter: brightness(70%);
+}
+
+.label {
+    background-color: #333435;
+}
+
+.glyphicon {
+    color: #FC4949;
 }

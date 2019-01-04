@@ -15,6 +15,7 @@ export class TagsearchComponent implements OnInit {
   id: string;
   posts = [];
   loading: boolean = true;
+  p: number = 1;
 
   constructor(private api: ApiService,
               private route: ActivatedRoute) { }

@@ -81,7 +81,7 @@
   }
   
 #link>a {
-    color: var(--font-color-3);
+    /*color: var(--font-color-3);*/
     font-family: var(--font-style-1); 
     font-weight: bold;
   }

@@ -5,3 +5,11 @@ h4 {
 .label:hover {
     filter: brightness(70%);
 }
+
+.label {
+    background-color: #333435;
+}
+
+.glyphicon {
+    color: #FC4949;
+}

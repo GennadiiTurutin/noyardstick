@@ -14,6 +14,7 @@ export class ArchivesearchComponent implements OnInit {
   month: string;
   archive = [];
   loading: boolean = true;
+  p: number = 1;
 
   constructor(private api: ApiService,
               private route: ActivatedRoute,

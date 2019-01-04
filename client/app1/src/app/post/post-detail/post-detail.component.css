@@ -64,3 +64,11 @@ a:hover {
 mat-form-field {
   width: 67%;
 }
+
+.label {
+  background-color: #333435;
+}
+
+#post:hover {
+  filter: brightness(70%);
+}

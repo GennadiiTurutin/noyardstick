@@ -51,7 +51,7 @@
                     </div>
                   </div>
                  
-                  <nav id="nav2" class="navbar navbar-dark bg-light navbar-expand-md">
+                  <nav id="nav2" class="navbar navbar-inverse navbar-expand-md" style="background-color: black;">
                       
                       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" 
                       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -90,7 +90,7 @@
                             id="link" 
                             role="presentation"
                             routerLinkActive="active">
-                          <a routerLink="/signup">Register</a>
+                          <a (click)="dialog.openRegisterDialog()">Register</a>
                         </li>
                   
                         <li *ngIf="!userService.isLoggedIn()"
@@ -114,11 +114,12 @@
                         <div class="form-group">
                           <input 
                           class="form-control"
+                          style="max-width: 150px;"
                           type="text"
                           formControlName="q" 
                           placeholder="Search">
-                        </div>&nbsp;
-                        <button class="btn btn-default" type="submit" >Search</button>
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
                       </form>
                      </div>  
                   </nav>

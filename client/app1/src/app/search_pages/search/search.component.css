@@ -36,8 +36,27 @@ p {
 
 #result {
     border: 1px solid var(--background-color-2);
+    
+}
+
+.container {
+   min-height: 500px; 
 }
 
 #result:hover {
     background-color: var(--background-color-2) ;
 }
+
+.label {
+    background-color: var(--background-color-4);
+}
+
+.pagination-class /deep/ .ngx-pagination .current {
+    font-family: var(--font-style-1); 
+    background-color: var(--background-color-4);
+    font-size: 20px;
+    margin-top: var(--margin-2);
+  }
+.pagination-class {
+    text-align: right;
+  }

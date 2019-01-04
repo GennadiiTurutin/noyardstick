@@ -52,7 +52,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     posts = PostSerializer_(many=True, read_only=True)
     class Meta:
         model = Category
-        fields = ('name', 'posts')
+        fields = ('id','name', 'posts')
 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):

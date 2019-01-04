@@ -45,8 +45,12 @@ p {
     font-weight: bold;
 }
 
+.container {
+    margin: var(--margin-2);
+}
+
 #comments {
-    background-color: #337ab7;
+    background-color: var(--background-color-4);
     margin: var(--margin-3);
     border-radius: 5px;
 }
@@ -54,3 +58,4 @@ p {
 #comments:hover {
     filter: brightness(70%);
   }
+

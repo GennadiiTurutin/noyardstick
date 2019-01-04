@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   getPostsforCategory(id:string): Observable<any> {
-    return this.http.get(this.baseurl + '/categories/search/' + id + '/')
+    return this.http.get(this.baseurl + '/category/search/' + id + '/')
   }
 
   getLongReads(): Observable<any> {

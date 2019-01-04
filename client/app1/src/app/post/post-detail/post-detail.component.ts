@@ -61,10 +61,9 @@ export class PostDetailComponent implements OnInit {
     this.api.getPost(this.id).subscribe(
         data => { 
           this.post = data;
-          console.log(this.post)
         }, 
         error => {
-          console.log(this.post)
+          console.log(error)
         }
       )
   }
@@ -81,6 +80,8 @@ export class PostDetailComponent implements OnInit {
         }
     );
   }
+  
+ 
 }
 
 

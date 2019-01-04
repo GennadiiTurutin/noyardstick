@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import  { SignindialogComponent } from '../auth/signindialog/signindialog.component';
 import 'rxjs/Rx';
 import { ContactComponent } from '../popups/contact/contact.component';
+import { SignupComponent } from '../auth/signup/signup.component';
 
 @Injectable()
 export class DialogService {
@@ -16,6 +17,13 @@ export class DialogService {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(SignindialogComponent, {
+      width: '400px'
+    });
+    dialogRef.afterClosed()
+  }
+
+  openRegisterDialog(): void {
+    let dialogRef = this.dialog.open(SignupComponent, {
       width: '400px'
     });
     dialogRef.afterClosed()

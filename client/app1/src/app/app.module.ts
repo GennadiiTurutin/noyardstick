@@ -51,7 +51,6 @@ const appRoutes: Routes = [
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'about_me', component: AboutMeComponent },
   { path: 'watchers', component: WatchersComponent },
-  { path: 'signup', component: SignupComponent },
   { path: 'search/:id', component: SearchComponent },
   { path: 'tags/:id', component: TagsearchComponent },
   { path: 'categories/:id', component: CategorysearchComponent },
@@ -104,7 +103,7 @@ const appRoutes: Routes = [
     MatTableModule,
     NgxPaginationModule
   ],
-  entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent],
+  entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent, SignupComponent],
   providers: [ 
     ApiService,
     DatePipe, GlobalService, 
