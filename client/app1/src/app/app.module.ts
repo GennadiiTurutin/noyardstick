@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { GlobalService } from './services/global.service';
@@ -44,6 +44,11 @@ import { ApiService } from './services/api.service';
 import { TruncatePipe } from './pipes/truncate';
 import { ArchivesearchComponent } from './search_pages/archivesearch/archivesearch.component';
 import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component';
+import { SomePipe } from './post/post-detail/pipe';
+//import { HttpXsrfInterceptor, 
+//         HttpXsrfCookieExtractor, 
+ //        XSRF_COOKIE_NAME, 
+ //        XSRF_HEADER_NAME, HttpXsrfTokenExtractor } from '@angular/common/http/src/xsrf';
 
 
 const appRoutes: Routes = [
@@ -81,7 +86,8 @@ const appRoutes: Routes = [
     CategorysearchComponent,
     TruncatePipe,
     ArchivesearchComponent,
-    UnsubscribeComponent
+    UnsubscribeComponent,
+    SomePipe
   ],
   imports: [
     BrowserModule,
@@ -107,8 +113,15 @@ const appRoutes: Routes = [
   providers: [ 
     ApiService,
     DatePipe, GlobalService, 
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+  //  HttpXsrfInterceptor,
+  //  { provide: HTTP_INTERCEPTORS, useExisting: HttpXsrfInterceptor, multi: true },
+  //  { provide: HttpXsrfTokenExtractor, useClass: HttpXsrfCookieExtractor }, 
+  //  { provide: XSRF_COOKIE_NAME, useValue: 'XSRF-TOKEN' }, 
+  //  { provide: XSRF_HEADER_NAME, useValue: 'X-XSRF-TOKEN' },
+  //  { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }

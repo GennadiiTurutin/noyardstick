@@ -18,7 +18,7 @@ export class UnsubscribeComponent implements OnInit {
   constructor(private api: ApiService,
               private router: Router,
               private route: ActivatedRoute,
-              private dialog: DialogService) { }
+              public dialog: DialogService) { }
 
   ngOnInit() {
     setTimeout(() => {

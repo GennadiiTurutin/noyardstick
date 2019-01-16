@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  posts: Observable<any>;
+  posts: any;
   id: string;
   loading: boolean = true;
   p: number = 1;

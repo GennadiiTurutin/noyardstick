@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -6,15 +6,14 @@ import { ApiService } from '../../services/api.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements AfterViewInit {
   tags = [];
-  posts = [];
-  data = [];
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.getTags()
+    this.getTags();
+    //(<any>window).twttr.widgets.load();
   }
 
   getTags = () => {
@@ -27,4 +26,8 @@ export class SidebarComponent implements OnInit {
       }
     )
   }
+
+  ngAfterViewInit(): void {
+    // @ts-ignore
+    twttr.widgets.load();}
 }

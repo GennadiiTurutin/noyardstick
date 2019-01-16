@@ -12,11 +12,11 @@ export class ArchivesearchComponent implements OnInit {
   category: Observable<any>
   year: string;
   month: string;
-  archive = [];
+  archive: any;
   loading: boolean = true;
   p: number = 1;
 
-  constructor(private api: ApiService,
+  constructor(public api: ApiService,
               private route: ActivatedRoute,
               private router: Router) { 
               this.router.routeReuseStrategy.shouldReuseRoute = () => false;

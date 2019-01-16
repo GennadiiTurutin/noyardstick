@@ -20,11 +20,11 @@ export class AppComponent implements OnInit {
   posts: Observable<any>;
   categories = [];
 
-  constructor(private userService: UserService, 
+  constructor(public userService: UserService, 
     private router: Router,
     private globalService: GlobalService,
-    private api: ApiService,
-    private dialog: DialogService,
+    public api: ApiService,
+    public dialog: DialogService,
     private fb: FormBuilder,
     ) { 
       this.searchvalue = this.fb.group({
