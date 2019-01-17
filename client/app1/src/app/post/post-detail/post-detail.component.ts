@@ -9,6 +9,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { UserService } from '../../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from "rxjs/Rx";
+import { SocialService} from "ng6-social-button";
 
 
 @Component({
@@ -24,6 +25,9 @@ export class PostDetailComponent implements OnInit {
   comment;
   params;
   loading: boolean = false;
+  shareObj = {
+    href: "http://localhost:4200/posts/1",
+};
   
   
   constructor(private api: ApiService, 
@@ -31,7 +35,8 @@ export class PostDetailComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private globalService: GlobalService,
-              private userService: UserService) {}
+              private userService: UserService,
+              private socialAuthService: SocialService) {}
   
   account: User = new User();
   userSub: Subscription;
@@ -79,6 +84,18 @@ export class PostDetailComponent implements OnInit {
           console.log(error)
         }
     );
+  }
+
+  signOut(){
+    if(this.socialAuthService.isSocialLoggedIn()){
+        this.socialAuthService.signOut().catch((err)=>{
+
+        });
+    }
+  }
+
+  getSocialUser(socialUser){
+     console.log(socialUser);
   }
   
  

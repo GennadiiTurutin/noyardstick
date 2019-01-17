@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import MyUser, Post, Tag, Comment, Image, Category, Subscriber, Archive
+from .models import Post, Tag, Comment, Image, Category, Subscriber, Archive
 from django.db import models
 
 from django.contrib.contenttypes.models import ContentType
@@ -25,9 +25,10 @@ class ImageSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta: 
-        model = MyUser
+        model = User
         fields = ('__all__')
         extra_kwargs = {'password' : {'write_only': True, 'required': True}}
+
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

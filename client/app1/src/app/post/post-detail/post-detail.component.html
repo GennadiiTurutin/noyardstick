@@ -1,6 +1,7 @@
-<div class="container-fluid" style="text-align: right;">
-            <a href="#" class="fa fa-facebook" style="margin: 1%;"></a>
-            <a href="#" class="fa fa-twitter"  style="margin: 1%;"></a>
+<div class="col-lg-12 col-md-12 col-sm-12 mx-auto" >
+  <div class="container-fluid" style="float: right; width: 200px;">
+    <facebook-share-button [share]="shareObj"></facebook-share-button>  
+  </div>
 </div>
 
 <div *ngIf="post" class="content-markdown">
@@ -26,16 +27,9 @@
         <p> {{ post.content }} </p>
       
       <br><br>
-    
       <hr>
+
       
-      <div class="container-fluid" style="text-align: right;">
-          <a href="#" class="fa fa-facebook" style="margin: 1%;"></a>
-          <a href="#" class="fa fa-twitter" style="margin: 1%;"></a>
-      </div>
-      
-    
-    
         <div class="page-header">
           <h2><b>Comments</b></h2>
           <h4 *ngIf="!userService.isLoggedIn()">You have to get registered to leave comments</h4>

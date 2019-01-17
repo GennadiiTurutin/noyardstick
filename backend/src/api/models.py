@@ -16,7 +16,6 @@ class MyUser(User):
         super().set_password(self.password)
         super().save(*args, **kwargs)
 
-
 class Image(models.Model):
     image = models.ImageField('Uploaded image')
 
@@ -45,7 +44,6 @@ class Post(models.Model):
     subtitle = models.CharField(max_length=500)
     content = models.TextField()
     super_important = models.BooleanField(default=True)
-    long_read = models.BooleanField(default=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name='posts')

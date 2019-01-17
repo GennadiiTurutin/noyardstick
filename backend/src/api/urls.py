@@ -18,7 +18,6 @@ urlpatterns = [
     url('', include(router.urls)),
     url('tags/search/(?P<tagname>.+)/$', views.PostList.as_view()),
     url('category/search/(?P<category>.+)/$', views.PostListCategory.as_view()),
-    url('posts/long', views.PostLongReadViewSet.as_view()),
     url('posts/important', views.PostImportantViewSet.as_view()),
     url('archive/search/(?P<year>.+)/(?P<month>.+)$', views.PostListArchive.as_view()),
     ]

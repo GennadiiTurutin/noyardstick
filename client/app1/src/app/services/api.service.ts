@@ -45,10 +45,6 @@ export class ApiService {
     return this.http.get(this.baseurl + '/api/category/search/' + id + '/')
   }
 
-  getLongReads(): Observable<any> {
-    return this.http.get(this.baseurl + '/api/posts/long')
-  }
-
   getImportant(): Observable<any> {
     return this.http.get(this.baseurl + '/api/posts/important')
   }

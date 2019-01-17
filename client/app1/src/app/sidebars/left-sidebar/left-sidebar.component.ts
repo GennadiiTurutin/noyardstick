@@ -12,7 +12,6 @@ export class LeftSidebarComponent implements OnInit {
 
   constructor(private api: ApiService) {
     this.getImportantPosts();
-    this.getLongReads();
   }
 
   getImportantPosts = () => {
@@ -26,16 +25,6 @@ export class LeftSidebarComponent implements OnInit {
       )
     }
 
-  getLongReads = () => {
-      this.api.getLongReads().subscribe(
-        data => { 
-          this.posts_long = data;
-        }, 
-        error => {
-          console.log(error)
-        }
-      )
-    }
   ngOnInit() { }
 
 }

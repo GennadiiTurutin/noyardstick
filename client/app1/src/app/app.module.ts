@@ -45,11 +45,10 @@ import { TruncatePipe } from './pipes/truncate';
 import { ArchivesearchComponent } from './search_pages/archivesearch/archivesearch.component';
 import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component';
 import { SomePipe } from './post/post-detail/pipe';
-//import { HttpXsrfInterceptor, 
-//         HttpXsrfCookieExtractor, 
- //        XSRF_COOKIE_NAME, 
- //        XSRF_HEADER_NAME, HttpXsrfTokenExtractor } from '@angular/common/http/src/xsrf';
-
+import {
+  Ng6SocialButtonModule,
+  SocialServiceConfig
+} from "ng6-social-button"
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,6 +61,13 @@ const appRoutes: Routes = [
   { path: 'archive/search/:year/:month', component: ArchivesearchComponent },
   { path: 'unsubscribe/:id', component: UnsubscribeComponent },
 ];
+
+// Configs
+export function getAuthServiceConfigs() {
+  let config = new SocialServiceConfig()
+      .addFacebook("Your-Facebook-app-id")
+  return config;
+}
 
 
 @NgModule({
@@ -107,18 +113,15 @@ const appRoutes: Routes = [
     AvatarModule, 
     MatPaginatorModule,
     MatTableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng6SocialButtonModule
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent, SignupComponent],
   providers: [ 
     ApiService,
     DatePipe, GlobalService, 
-  //  HttpXsrfInterceptor,
-  //  { provide: HTTP_INTERCEPTORS, useExisting: HttpXsrfInterceptor, multi: true },
-  //  { provide: HttpXsrfTokenExtractor, useClass: HttpXsrfCookieExtractor }, 
-  //  { provide: XSRF_COOKIE_NAME, useValue: 'XSRF-TOKEN' }, 
-  //  { provide: XSRF_HEADER_NAME, useValue: 'X-XSRF-TOKEN' },
-  //  { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+    { provide: SocialServiceConfig,
+      useFactory: getAuthServiceConfigs},
   ],
 
   bootstrap: [AppComponent],

@@ -13,7 +13,7 @@ from .serializers import (
     )
 
 from django.contrib.auth.models import User
-from .models import MyUser, Post, Tag, Comment, Image, Category, Subscriber, Archive
+from .models import User, Post, Tag, Comment, Image, Category, Subscriber, Archive
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.generics import (
@@ -44,10 +44,11 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
 
-# User - GET, POST
+
+# AdminUser - GET, POST
 
 class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
-    queryset = MyUser.objects.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer   
     authentication_classes = (TokenAuthentication, )
     permission_classes = ()
@@ -59,14 +60,6 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     filter_backends = [SearchFilter]
     search_fields = ('title', 'subtitle', 'content')
-
-# Post Long Read - GET
-
-class PostLongReadViewSet(generics.ListAPIView):
-    serializer_class = PostSerializer
-
-    def get_queryset(self):
-        return Post.objects.filter(long_read=True)
 
 # Post Important - GET
 
