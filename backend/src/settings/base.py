@@ -170,7 +170,7 @@ REST_FRAMEWORK = {
 
 DEFAULT_FILE_STORAGE = 'src.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'src.utils.StaticRootS3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'gennadii'
+AWS_STORAGE_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME
 S3DIRECT_REGION = 'us-west-2'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
