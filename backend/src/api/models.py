@@ -144,7 +144,7 @@ class Comment(models.Model):
 
 class Subscriber(models.Model):
     id = models.AutoField(primary_key=True)
-    email = models.EmailField()
+    email = models.EmailField(max_length=255,unique=True)
     date_subscribed = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

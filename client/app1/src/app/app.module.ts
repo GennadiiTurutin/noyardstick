@@ -45,10 +45,6 @@ import { TruncatePipe } from './pipes/truncate';
 import { ArchivesearchComponent } from './search_pages/archivesearch/archivesearch.component';
 import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component';
 import { SomePipe } from './post/post-detail/pipe';
-import {
-  Ng6SocialButtonModule,
-  SocialServiceConfig
-} from "ng6-social-button";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -61,14 +57,6 @@ const appRoutes: Routes = [
   { path: 'archive/search/:year/:month', component: ArchivesearchComponent },
   { path: 'unsubscribe/:id', component: UnsubscribeComponent },
 ];
-
-// Configs
-export function getAuthServiceConfigs() {
-  let config = new SocialServiceConfig()
-      .addFacebook("Your-Facebook-app-id")
-  return config;
-}
-
 
 @NgModule({
   
@@ -114,14 +102,11 @@ export function getAuthServiceConfigs() {
     MatPaginatorModule,
     MatTableModule,
     NgxPaginationModule,
-    Ng6SocialButtonModule
   ],
   entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent, SignupComponent],
   providers: [ 
     ApiService,
-    DatePipe, GlobalService, 
-    { provide: SocialServiceConfig,
-      useFactory: getAuthServiceConfigs},
+    DatePipe, GlobalService,
   ],
 
   bootstrap: [AppComponent],

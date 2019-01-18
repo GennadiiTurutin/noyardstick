@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { MatDialog } from '@angular/material';
 import 'rxjs/add/operator/toPromise';
-import { Headers, Http, Response } from '@angular/http';
 
 @Injectable()
 export class ApiService {

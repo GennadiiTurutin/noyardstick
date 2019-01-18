@@ -9,7 +9,6 @@ import { GlobalService } from 'src/app/services/global.service';
 import { UserService } from '../../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from "rxjs/Rx";
-import { SocialService, FacebookLoginProvider, GoogleLoginProvider} from "ng6-social-button";
 
 
 @Component({
@@ -25,6 +24,7 @@ export class PostDetailComponent implements OnInit {
   comment;
   params;
   loading: boolean = false;
+  url="noyardstick.com";
   
   
   constructor(private api: ApiService, 
@@ -32,8 +32,7 @@ export class PostDetailComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private globalService: GlobalService,
-              private userService: UserService,
-              private socialAuthService: SocialService) {}
+              private userService: UserService) {}
   
   account: User = new User();
   userSub: Subscription;
@@ -75,10 +74,13 @@ export class PostDetailComponent implements OnInit {
         response => {
           this.loading = true;
           window.location.reload();
+          console.log(this.userComment.value)
+
         },
         error => {
           this.loading = false;
           console.log(error)
+          console.log(this.userComment.value)
         }
     );
   }  
