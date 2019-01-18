@@ -48,7 +48,7 @@ import { SomePipe } from './post/post-detail/pipe';
 import {
   Ng6SocialButtonModule,
   SocialServiceConfig
-} from "ng6-social-button"
+} from "ng6-social-button";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },

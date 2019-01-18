@@ -1,11 +1,16 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Post, Tag, Comment, Image, Category, Subscriber, Archive
+from .models import (
+    User, 
+    Post, 
+    Tag, 
+    Comment, 
+    Image, 
+    Category, 
+    Subscriber, 
+    Archive
+    )
 from django.db import models
-
-from django.contrib.contenttypes.models import ContentType
 from rest_framework.request import Request
-
 from rest_framework.serializers import (
     HyperlinkedIdentityField,
     ModelSerializer,
@@ -64,7 +69,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'title', 'subtitle', 'content', 'tags', 'category', 
-                  'comments', 'post_images', 'date_posted', 'long_read', 'super_important')
+                  'comments', 'post_images', 'date_posted', 'super_important')
 
 class SubscriberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

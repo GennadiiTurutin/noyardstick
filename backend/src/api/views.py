@@ -9,35 +9,31 @@ from .serializers import (
     UserSerializer, 
     ImageSerializer,
     SubscriberSerializer,
-    ArchiveSerializer
+    ArchiveSerializer,
+    UserSerializer
     )
 
-from django.contrib.auth.models import User
-from .models import User, Post, Tag, Comment, Image, Category, Subscriber, Archive
+from .models import (
+    User, 
+    Post, 
+    Tag, 
+    Comment, 
+    Image, 
+    Category, 
+    Subscriber, 
+    Archive
+    )
+
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-from rest_framework.generics import (
-    CreateAPIView
-    )
-
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
-
 from rest_framework import generics
-
 from django.db.models import Q
-
-from rest_framework.filters import (
-    SearchFilter, 
-    OrderingFilter
-    )
-
-from rest_framework.pagination import (
-    LimitOffsetPagination,
-    PageNumberPagination
-    )
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 from django.conf import settings
 from django.shortcuts import render
@@ -52,6 +48,7 @@ class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
     serializer_class = UserSerializer   
     authentication_classes = (TokenAuthentication, )
     permission_classes = ()
+
 
 # Post - GET, POST
 
@@ -146,15 +143,14 @@ class SubscriberViewSet(viewsets.ModelViewSet):
 class CustomObtainAuthToken(ObtainAuthToken):
     authentication_classes = (TokenAuthentication, )
     permission_classes = ()
-    
+ 
     def post(self, request, *args, **kwargs):
         response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
         token = Token.objects.get(key=response.data['token'])
-        user = MyUser.objects.get(id=token.user_id)
+        user = User.objects.get(id=token.user_id)
         serializer = UserSerializer(user, many=False)
 
         return Response({'token': token.key, 'user': serializer.data})
-
 
 
 
