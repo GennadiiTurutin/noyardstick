@@ -49,6 +49,10 @@ p {
     background-color: var(--background-color-4);
 }
 
+.container {
+    min-height: 500px; 
+ }
+
 .pagination-class /deep/ .ngx-pagination .current {
     font-family: var(--font-style-1); 
     background-color: var(--background-color-4);

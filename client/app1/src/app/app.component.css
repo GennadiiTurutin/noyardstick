@@ -1,150 +1,167 @@
 :host {
 
-  /* Backfround color */
-  --background-color-1:white;
-  --background-color-2: #F3F1F1;
-  --background-color-3: #eaf0f9;
-  --background-color-4: #333435;
+    /* Backfround color */
+    --background-color-1:white;
+    --background-color-2: #F3F1F1;
+    --background-color-3: #eaf0f9;
+    --background-color-4: #333435;
+  
+    /* Font color */
+    --font-color-1: white;
+    --font-color-2: #FC4949;
+    --font-color-3: black;
+    --font-color-4: #9B9999;
+    /* Size */
+    --font-size-0: 40px;
+    --font-size-1: 30px;
+    --font-size-2: 20px;
+    --font-size-3: 14px;
+    /* Font style */
+    --font-style-1: 'Roboto', sans-serif;
+    /* Margin */
+    --margin-1: 7%;
+    --margin-2: 5%;
+    --margin-3: 2%; 
+    --margin-4: 0%;
+  }
+  
+  .nav>li {
+      display: inline-block;
+    }
+    
+  /* Navigation bar 1 */
+  
+  #nav1 {
+      margin-top: var(--margin-3);
+    }
+    
+  #nav1>ul {
+      display: inline-block;
+    }
+    
+  #nav1 #icons>li {
+      font-size: var(--font-size-1);  
+    }
+    
+  #nav1 li>a {
+      color: var(--font-color-4);
+      font-size: var(--font-size-2); 
+    }
+  
+  #nav1 li>a:not(.fa) {
+      font-family: var(--font-style-1);  
+    }
+    
+    
+  #nav1 #logo {
+      font-size: var(--font-size-0); 
+      color: var(--font-color-2); 
+      text-align: center;
+      font-family: var(--font-style-1); 
+    }
 
-  /* Font color */
-  --font-color-1: white;
-  --font-color-2: #FC4949;
-  --font-color-3: black;
-  --font-color-4: #9B9999;
-  /* Size */
-  --font-size-0: 40px;
-  --font-size-1: 30px;
-  --font-size-2: 20px;
-  --font-size-3: 14px;
-  /* Font style */
-  --font-style-1: 'Roboto', sans-serif;
-  /* Margin */
-  --margin-1: 7%;
-  --margin-2: 5%;
-  --margin-3: 2%; 
-  --margin-4: 0%;
-}
+    
+    @media (max-width: 80em) {
+      #nav1 .navbar-left {
+        margin: auto;
+      }
+      #nav1 .navbar-center {
+        margin: auto;
+      }
 
-.nav>li {
-    display: inline-block;
-  }
-  
-/* Navigation bar 1 */
+      #nav1 .navbar-right {
+        margin: auto;
+      }
 
-#nav1 {
-    margin-top: var(--margin-3);
+    }
+    
+  
+  /* Jumbotron */ 
+   
+  .jumbotron {
+    background-color: var(--background-color-1); 
+    border-top: 5px solid #efeff5;
+    font-family: var(--font-style-1); 
   }
   
-#nav1>ul {
-    display: inline-block;
+    
+  /* Navigation bar 2 */
+  
+  #nav2 {
+      margin-bottom: var(--margin-4);
+      font-size: var(--font-size-3);
+    }
+    
+  #nav2>li {
+      display: inline-block;
+    }
+    
+  #link>a {
+      /*color: var(--font-color-3);*/
+      font-family: var(--font-style-1); 
+      font-weight: bold;
+    }
+    
+  .navbar-toggler-icon {
+      background-image: 
+      url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+  
+  
+  /* Navigation bar 3 */
+  
+  #nav3 {
+      background: var(--background-color-1); 
+      font-size: var(--font-size-3);
+      font-family: var(--font-style-1); 
+      border: 0;  
+      border-bottom: 1px solid #d6d6d6;
+    }
+  
+  #nav3>ul {
+      display: inline-block;
+    }
+   
+  /* Footer */ 
+    
+  footer {
+      background-color: var(--background-color-4);
+      margin-top: var(--margin-1);
+      position: relative;
+      bottom:0;
+    }
+    
+  
+  footer a:not(.fa)  {
+      font-size: var(--font-size-3);
+      font-family: var(--font-style-1); 
+      color: var(--font-color-4);
   }
   
-#nav1 #icons>li {
-    font-size: var(--font-size-1);  
+  footer p {
+      font-size: var(--font-size-3);
+      font-family: var(--font-style-1); 
+      color: var(--font-color-4);
   }
   
-#nav1 li>a {
+  footer #logo {
+      color: var(--font-color-2);
+      font-weight: bold; 
+      font-size: var(--font-size-2);
+      margin: var(--margin-3)
+  } 
+  
+  footer .fa {
     color: var(--font-color-4);
-    font-size: var(--font-size-2); 
-  }
-
-#nav1 li>a:not(.fa) {
-    font-family: var(--font-style-1);  
+    font-size: var(--font-size-1);
+    padding: 20%;
   }
   
-  
-#nav1 #logo {
-    font-size: var(--font-size-0); 
-    color: var(--font-color-2); 
-    text-align: center;
-    font-family: var(--font-style-1); 
-  }
-
-/* Jumbotron */ 
- 
-.jumbotron {
-  background-color: var(--background-color-1); 
-  border-top: 5px solid #efeff5;
-  font-family: var(--font-style-1); 
-}
-
-  
-/* Navigation bar 2 */
-
-#nav2 {
-    margin-bottom: var(--margin-4);
-    font-size: var(--font-size-3);
+  footer a:hover {
+    color: var(--font-color-1)
   }
   
-#nav2>li {
-    display: inline-block;
+  /* General */ 
+  a:hover { 
+    text-decoration: none;
   }
-  
-#link>a {
-    /*color: var(--font-color-3);*/
-    font-family: var(--font-style-1); 
-    font-weight: bold;
-  }
-  
-.navbar-toggler-icon {
-    background-image: 
-    url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
-
-
-/* Navigation bar 3 */
-
-#nav3 {
-    background: var(--background-color-1); 
-    font-size: var(--font-size-3);
-    font-family: var(--font-style-1); 
-    border: 0;  
-    border-bottom: 1px solid #d6d6d6;
-  }
-
-#nav3>ul {
-    display: inline-block;
-  }
- 
-/* Footer */ 
-  
-footer {
-    background-color: var(--background-color-4);
-    margin-top: var(--margin-1);
-    margin-bottom: var(--margin-4);
-    margin-right: var(--margin-4);
-  }
-
-footer a:not(.fa)  {
-    font-size: var(--font-size-3);
-    font-family: var(--font-style-1); 
-    color: var(--font-color-4);
-}
-
-footer p {
-    font-size: var(--font-size-3);
-    font-family: var(--font-style-1); 
-    color: var(--font-color-4);
-}
-
-footer #logo {
-    color: var(--font-color-2);
-    font-weight: bold; 
-    font-size: var(--font-size-2);
-    margin: var(--margin-3)
-} 
-
-footer .fa {
-  color: var(--font-color-4);
-  font-size: var(--font-size-1);
-  padding: 20%;
-}
-
-footer a:hover {
-  color: var(--font-color-1)
-}
-
-/* General */ 
-a:hover { 
-  text-decoration: none;
-} 

@@ -17,7 +17,6 @@ import { MatCardModule } from '@angular/material';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { Pipe, PipeTransform } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,15 +28,12 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { WatchersComponent } from './watchers/watchers.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { LeftSidebarComponent } from './sidebars/left-sidebar/left-sidebar.component';
-import { SignindialogComponent } from './auth/signindialog/signindialog.component';
 import 'hammerjs';
 import { SubscriptionComponent } from './popups/subscription/subscription.component';
 import { TagsearchComponent } from './search_pages/tagsearch/tagsearch.component';
 import { SearchComponent } from './search_pages/search/search.component';
 import { AvatarModule } from 'ngx-avatar';
-import { DiscussionComponent } from './discussion/discussion.component';
 import { ContactComponent } from './popups/contact/contact.component';
 import { CategorysearchComponent } from './search_pages/categorysearch/categorysearch.component';
 import { ApiService } from './services/api.service';
@@ -45,6 +41,8 @@ import { TruncatePipe } from './pipes/truncate';
 import { ArchivesearchComponent } from './search_pages/archivesearch/archivesearch.component';
 import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component';
 import { SomePipe } from './post/post-detail/pipe';
+import { DisqusModule } from "ngx-disqus";
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -69,13 +67,10 @@ const appRoutes: Routes = [
     WatchersComponent,
     ArchiveComponent,
     PostDetailComponent, 
-    SignupComponent,
     LeftSidebarComponent,
-    SignindialogComponent,
     SubscriptionComponent,
     TagsearchComponent,
     SearchComponent,
-    DiscussionComponent,
     ContactComponent,
     CategorysearchComponent,
     TruncatePipe,
@@ -102,8 +97,10 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatTableModule,
     NgxPaginationModule,
+    DisqusModule.forRoot('yardstick'),
+    MarkdownModule.forRoot(),
   ],
-  entryComponents: [SignindialogComponent, SubscriptionComponent, ContactComponent, SignupComponent],
+  entryComponents: [SubscriptionComponent, ContactComponent],
   providers: [ 
     ApiService,
     DatePipe, GlobalService,

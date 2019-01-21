@@ -1,24 +1,24 @@
 <div class="container">
 
-      <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+      <div class="col-lg-12 col-md-12 col-sm-0 mx-auto">
             <nav id="nav1" class="navbar"> 
               
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left" id="contact">
                       <li>
-                          <a (click)="dialog.openContact()"><b>Contact</b></a>
+                          <a (click)="dialog.openContact()"><b>CONTACT</b></a>
                       </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-center">
-                        <li>
-                          <a id="logo" href="/" class="navbar-brand">NoYARDSTICK</a>
-                        </li> 
+                          <a href="/" class="navbar-brand" style="margin-bottom: 20%;">
+                            <img src="static/app/assets/images/Logo.png" >
+                          </a> 
                     </ul>
                     <ul id="icons" class="nav navbar-nav navbar-right">
                       <li>
-                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="https://www.facebook.com/noyardstick/" class="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="https://twitter.com/NoYardstick" class="fa fa-twitter"></a>
                       </li>
                     </ul>
               </nav>
@@ -26,7 +26,7 @@
                   
                   <div class="jumbotron" style="padding-left: 0px; padding-right: 0px;">
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mx-auto">
                           <h1>News from ...</h1>
                             <p>
                             This blog means to be a small contribution to the solution of the eternal question: 
@@ -40,11 +40,9 @@
                                 </button>  
                         </div>
                          
-                        <div class="col-md-4">
+                        <div class="col-lg-5 col-md-12 col-sm-12 mx-auto">
                           <div class="logo">
-                            <a href="/">
-                              <img src="/static/app/assets/images/Russia.jpg" width="100%" alt="logo">
-                            </a>
+                              <img src="static/app/assets/images/Russia_2.png" width="100%" alt="logo">
                           </div>
 
                         </div>
@@ -86,30 +84,6 @@
                   
                       </ul>
                   
-                      <ul class="nav navbar-nav navbar-right">
-                        <li *ngIf="!userService.isLoggedIn()" 
-                            id="link" 
-                            role="presentation"
-                            routerLinkActive="active">
-                          <a (click)="dialog.openRegisterDialog()">Register</a>
-                        </li>
-                  
-                        <li *ngIf="!userService.isLoggedIn()"
-                            id="link"
-                            role="presentation"
-                            routerLinkActive="active">
-                          <a (click)="dialog.openDialog()">Login</a>
-                        </li> 
-                  
-                        <li *ngIf="userService.isLoggedIn()"
-                            id="link"
-                            role="presentation"
-                            routerLinkActive="active">
-                            <a (click)="logoutClicked()"> Logout </a>
-                        </li>
-                        
-                  
-                      </ul>
                   
                       <form (ngSubmit)="searchPosts()" [formGroup]="searchvalue" class="navbar-form navbar-right">
                         <div class="form-group">
@@ -139,8 +113,9 @@
 
            
       <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-
+        <div class="container">
           <router-outlet></router-outlet>
+        </div>
       </div>
       
     
@@ -159,10 +134,10 @@
       <!-- Social buttons -->
       <ul class="list-unstyled list-inline text-center">
         <li>
-          <a href="#" class="fa fa-facebook"></a>
+          <a href="https://www.facebook.com/noyardstick/" class="fa fa-facebook"></a>
         </li>
         <li>
-            <a href="#" class="fa fa-twitter"></a>
+            <a href="https://twitter.com/NoYardstick" class="fa fa-twitter"></a>
         </li>
       </ul>
       <!-- Social buttons -->

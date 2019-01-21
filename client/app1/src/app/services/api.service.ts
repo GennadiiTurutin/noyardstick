@@ -16,10 +16,6 @@ export class ApiService {
 
   getPosts(): Observable<any> {return this.http.get(this.baseurl + '/api/posts/')}
 
-  getComments(): Observable<any> {return this.http.get(this.baseurl + '/api/comments/')}
-
-  getCommentsDetail(): Observable<any> {return this.http.get(this.baseurl + '/api/_comments/')}
-
   getPost(id: number): Observable<any> {return this.http.get(this.baseurl + '/api/posts/' + id + '/')}
 
   getTags(): Observable<any> {return this.http.get(this.baseurl + '/api/tags/')}
@@ -30,10 +26,6 @@ export class ApiService {
 
   getPostsforArchive(year:string, month:string): Observable<any> {
     return this.http.get(this.baseurl + '/api/archive/search/' + year + '/' + month )
-  }
-  
-  postComment(comment): Observable<any> {
-    return this.http.post(this.baseurl + '/api/comments/', comment, this.getAuthHeaders())
   }
 
   getPostsforTag(id:string): Observable<any> {
@@ -60,10 +52,8 @@ export class ApiService {
       return this.http.delete(this.baseurl + '/api/subscribers/' + id + '/')}
 
   private getAuthHeaders() {
-    const token = localStorage.getItem('token');
     const httpHeaders = new HttpHeaders(
-      {'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Token ' + token});
+      {'Content-Type': 'application/json; charset=utf-8'});
     return { headers: httpHeaders};
   }
   

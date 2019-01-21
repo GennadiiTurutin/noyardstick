@@ -31,7 +31,6 @@ export class CategorysearchComponent implements OnInit {
       data => {
         this.loading = false;
         this.category = data[0];
-        console.log(this.category)
         }, 
       error => {
           this.loading = false;

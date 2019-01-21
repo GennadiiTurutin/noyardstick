@@ -1,9 +1,8 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from .models import (
-    User, 
     Post, 
     Tag, 
-    Comment, 
     Image, 
     Category, 
     Subscriber, 
@@ -35,18 +34,6 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password' : {'write_only': True, 'required': True}}
 
 
-class CommentSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ('content', 'date_posted', 'post', 'author')
-
-class CommentDetailSerializer(serializers.HyperlinkedModelSerializer):
-    author = UserSerializer(read_only=True)
-    class Meta:
-        model = Comment
-        fields = ('content', 'date_posted', 'post', 'author')
-
-
 class TagSerializer(serializers.HyperlinkedModelSerializer):
     posts = PostSerializer_(many=True, read_only=True)
     class Meta:
@@ -63,13 +50,12 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
     category = CategorySerializer(read_only=True)
-    comments = CommentDetailSerializer(many=True, read_only=True)
     post_images = ImageSerializer(many=True, read_only=True)
     
     class Meta:
         model = Post
         fields = ('id', 'title', 'subtitle', 'content', 'tags', 'category', 
-                  'comments', 'post_images', 'date_posted', 'super_important')
+                   'post_images', 'date_posted', 'super_important')
 
 class SubscriberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../app/services/user.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../app/services/api.service';
@@ -9,18 +8,19 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SearchComponent } from '../app/search_pages/search/search.component';
 import { User } from 'src/app/models/user';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ApiService, UserService, DialogService]
+  providers: [ApiService, DialogService]
 })
 export class AppComponent implements OnInit {
   searchvalue: FormGroup;
   posts: Observable<any>;
   categories = [];
 
-  constructor(public userService: UserService, 
+  constructor( 
     private router: Router,
     private globalService: GlobalService,
     public api: ApiService,
@@ -50,13 +50,6 @@ export class AppComponent implements OnInit {
         console.log(error)
       }
     )
-  }
-
-  logoutClicked = () => {
-    this.globalService.me = new User();
-    localStorage.removeItem('token');
-    localStorage.removeItem('account');
-    this.router.navigate(['/']);
   }
  
 }

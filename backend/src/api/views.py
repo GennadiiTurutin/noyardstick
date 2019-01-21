@@ -1,11 +1,10 @@
 from rest_framework import viewsets
+from django.contrib.auth.models import User
 from .serializers import ( 
-    PostSerializer, 
-    PostSerializer_, 
+    PostSerializer,  
+    PostSerializer_,
     TagSerializer, 
     CategorySerializer,
-    CommentSerializer, 
-    CommentDetailSerializer,
     UserSerializer, 
     ImageSerializer,
     SubscriberSerializer,
@@ -13,24 +12,19 @@ from .serializers import (
     UserSerializer
     )
 
-from .models import (
-    User, 
+from .models import ( 
     Post, 
     Tag, 
-    Comment, 
     Image, 
     Category, 
     Subscriber, 
     Archive
     )
 
-from rest_framework.authentication import TokenAuthentication, SessionAuthentication
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework import generics
 from django.db.models import Q
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -39,15 +33,6 @@ from django.conf import settings
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
-
-
-# AdminUser - GET, POST
-
-class UserViewSet(viewsets.ModelViewSet, generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer   
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = ()
 
 
 # Post - GET, POST
@@ -112,20 +97,6 @@ class ArchiveViewSet(viewsets.ModelViewSet):
     queryset = Archive.objects.all()
     serializer_class = ArchiveSerializer
 
-# Comment - GET, POST
-
-class CommentViewSet(viewsets.ModelViewSet, APIView):
-    authentication_classes = (TokenAuthentication, SessionAuthentication )
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-    queryset = Comment.objects.all().order_by("-date_posted")
-    serializer_class = CommentSerializer
-
-# Comment - GET
-
-class CommentDetailViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all().order_by("-date_posted")
-    serializer_class = CommentDetailSerializer
-
 # Image - GET
 
 class ImageViewSet(viewsets.ModelViewSet):
@@ -137,25 +108,8 @@ class ImageViewSet(viewsets.ModelViewSet):
 class SubscriberViewSet(viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
-    authentication_classes = (TokenAuthentication, )
+   # authentication_classes = (TokenAuthentication, )
     permission_classes = ()
-
-class CustomObtainAuthToken(ObtainAuthToken):
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = ()
- 
-    def post(self, request, *args, **kwargs):
-        response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
-        token = Token.objects.get(key=response.data['token'])
-        user = User.objects.get(id=token.user_id)
-        serializer = UserSerializer(user, many=False)
-
-        return Response({'token': token.key, 'user': serializer.data})
-
-
-
-
-
 
 
 

@@ -10,21 +10,5 @@ export class UserService {
   baseUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient ) { }
-
-  registerNewUser(userData: any): Observable<any> {
-    return this.http.post(this.baseUrl + '/api/users/', userData)
-  }
-
-  loginUser(userData: any): Observable<any> {
-    return this.http.post(this.baseUrl + '/authenticate/', userData)
-  }
-
-  isLoggedIn() {
-    if (localStorage.getItem("token") == null) {
-      return false
-    }
-    else {
-      return true;
-    }
-  }
+  
 }

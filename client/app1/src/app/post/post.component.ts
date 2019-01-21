@@ -28,6 +28,7 @@ export class PostComponent implements OnInit{
       data => {
         this.loading = false; 
         this.posts = data;
+        console.log(this.posts)  
       }, 
       error => {
         this.loading = false;

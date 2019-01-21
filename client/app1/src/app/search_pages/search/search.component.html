@@ -1,7 +1,7 @@
 <div class="container"> 
     <div class="container" *ngIf="posts?.length > 0">
       <h2>Results for {{ id }}:</h2>
-    <mat-spinner *ngIf="loading"></mat-spinner>
+      <mat-spinner *ngIf="loading"></mat-spinner>
       <a *ngFor="let post of posts | paginate: { itemsPerPage: 2, currentPage: p }"
       [routerLink]="['/posts', post.id ]"> 
       <div id="result" class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%; border: grey 0.5 solid">
@@ -17,8 +17,11 @@
           (pageChange)="p = $event">
           </pagination-controls>
       </div>
+
     </div>
+
     <div  class="container" *ngIf="posts?.length === 0">
       <h2>No matches for {{id}}</h2>
     </div>
+    
 </div>

@@ -38,6 +38,7 @@
     "ng6-social-button": "^1.0.5",
     "ngx-avatar": "^3.2.0",
     "ngx-disqus": "^2.4.3",
+    "ngx-markdown": "^7.1.1",
     "ngx-pagination": "^3.2.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.3.3",

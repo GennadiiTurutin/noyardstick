@@ -33,7 +33,6 @@ export class ArchivesearchComponent implements OnInit {
       data => {
         this.loading = false;
         this.archive = data[0];
-        console.log(this.archive)
         }, 
       error => {
           this.loading = false;
