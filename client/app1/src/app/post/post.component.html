@@ -7,13 +7,12 @@
 
     
 
-    <div id="post" class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+    <div id="post" class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="padding:0%;">
       <div>
         <h4 id="category"><b>{{ post.category.name }}</b></h4>
       </div>
 
-      
-        <img src="{{ post.post_images[0].image }}">
+      <img src="{{ post.post_images[0].image }}">
     
       <h4 id="tag"><b>Tags:</b>&nbsp; 
           <a  *ngFor="let tag of post.tags"
@@ -24,7 +23,7 @@
       
       <h2 style="text-align: center;"><b>{{ post.title }}</b></h2>
       <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
-      <h4>{{ post.subtitle | truncate : 100 : true}}</h4>
+      <h4>{{ post.subtitle | truncate : 200 : true}}</h4>
     </div>
     
   </a>

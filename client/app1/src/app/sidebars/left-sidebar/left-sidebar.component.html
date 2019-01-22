@@ -1,29 +1,20 @@
-
-<div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%; padding-left: 0%;">
-
-  <div class="container">
+  <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%; ">
     <h4> <span class="glyphicon glyphicon-fire">&nbsp;</span> Important </h4>
   </div>
-
+  <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" >
+  <div class="row">
+    <div class="col-xs-12" id="ls">
+    <ul class="list-group"> 
+    <a *ngFor="let post of posts_important | slice:0:10"
+       [routerLink]="['/posts', post.id ]"
+       class="list-group-item">
+           <h4 class="list-group-item-heading">
+             <b>{{ post.title  }}</b>
+           </h4>
+    </a>
+    </ul>
+  </div>
+  </div>
+  </div>
 
   
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%; padding-left: 0%;">
-    <a *ngFor="let post of posts_important | slice:0:2"
-    [routerLink]="['/posts', post.id ]">
-      
-      
-      <div class="col-xs-12"> 
-        <div class="pull-left">
-        <h4 class="list-group-item-heading">
-          <b><span class="label label-primary">{{ post.title }}</span></b>
-        </h4>
-        </div>
-      </div>
-    </a>
-    </div>
-  </div>
-</div>
-
-
-

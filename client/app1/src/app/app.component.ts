@@ -20,12 +20,14 @@ export class AppComponent implements OnInit {
   posts: Observable<any>;
   categories = [];
 
+
   constructor( 
     private router: Router,
     private globalService: GlobalService,
     public api: ApiService,
     public dialog: DialogService,
     private fb: FormBuilder,
+    
     ) { 
       this.searchvalue = this.fb.group({
         q: ['', [Validators.required, Validators.minLength(3)] ],
@@ -34,8 +36,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories(); 
-    
   }
+
 
   searchPosts () {
     this.router.navigate(['/search/' + this.searchvalue.value.q]);
