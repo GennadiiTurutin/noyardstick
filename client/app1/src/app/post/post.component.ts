@@ -27,8 +27,7 @@ export class PostComponent implements OnInit{
     this.api.getPosts().subscribe(
       data => {
         this.loading = false; 
-        this.posts = data;
-        console.log(this.posts)  
+        this.posts = data; 
       }, 
       error => {
         this.loading = false;

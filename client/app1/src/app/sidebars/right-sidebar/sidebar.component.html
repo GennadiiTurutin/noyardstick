@@ -5,35 +5,36 @@
       <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
         <h4> <i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;Twitter </h4>
       </div>
-    
-       <a class="twitter-timeline"
+       <div class="container-fluid">
+           <a class="twitter-timeline"
           data-height="500"
-          href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">
-       </a>
-      
+          href="https://twitter.com/NoYardstick">
+          </a>        
+       </div>
     </div>
     
     <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
       <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
         <h4> <span class="glyphicon glyphicon-tags">&nbsp;</span> Tags </h4>
    
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-          <div class="pull-left" *ngFor="let tag of tags">
-          <h4>  
-          <a  [routerLink]="['/tags', tag.name ]"
-              style="margin: 2%; ">
-              <b><span class="label label-default">{{ tag.name }}</span></b>
-          </a>
-          </h4>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+            <div class="pull-left" *ngFor="let tag of tags">
+              <h4>  
+                <a  [routerLink]="['/tags', tag.name ]"
+                    style="margin: 2%; ">
+                    <b><span class="label label-default">{{ tag.name }}</span></b>
+                </a>
+              </h4>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
       <app-archive></app-archive>
     </div>
+
 </div>
 </div>

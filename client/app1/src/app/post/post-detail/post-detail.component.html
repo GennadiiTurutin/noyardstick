@@ -1,37 +1,33 @@
 <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="min-height: 1000px;">
 <div *ngIf="post">
-  
-        <h1 style="text-align: center;"><b>{{ post.title }}</b></h1>
+  <div>
+    <h4 id="category"><b>{{ post.category.name }}</b></h4>
+</div>   
+        <h2 style="text-align: center;"><b>{{ post.title }}</b></h2>
         
         <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
-          <br>
-          <h3 style="text-align: center; color: grey;">
-          <a
-          *ngFor="let tag of post.tags"
-          [routerLink]="['/tags', tag ]">
-          <b><span class="label label-default">{{ tag.name }}</span></b>&nbsp;
-          </a>
-          </h3>
-          <br><br>
-    
-        <img src="{{ post.post_images[0].image }}">
-        <br>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-bottom: 2%;margin-top: 2%;">
+                    <h4>
+                    <a *ngFor="let tag of post.tags"
+                      [routerLink]="['/tags', tag ]" >
+                        <span class="label label-default">{{ tag.name }} </span>&nbsp;
+                    </a>
+                    </h4>
+                </div>
+
         
-        <h2><b>{{ post.subtitle }}</b></h2>
+        <h4><b>{{ post.subtitle }}</b></h4>
         <br>
-      <p>  
+      <h4>  
       <markdown ngPreserveWhitespaces>
         {{ post.content }} 
       </markdown>
-      </p> 
+    </h4> 
       <br><br>
       <hr>
   
-          
-      
-
-
-      <disqus [identifier]="pageId"></disqus>
+      <disqus [identifier]= 'pageId'></disqus>
 
          
 </div>

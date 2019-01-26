@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(urls)),
-    path('', TemplateView.as_view(template_name='ng.html'), name='home'),
+    url('', TemplateView.as_view(template_name='ng.html'), name='home'),
     ] 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

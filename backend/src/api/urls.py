@@ -6,7 +6,6 @@ router = routers.DefaultRouter()
 router.register('posts', views.PostViewSet)
 router.register('tags', views.TagViewSet)
 router.register('categories', views.CategoryViewSet)
-router.register('images', views.ImageViewSet)
 router.register('subscribers', views.SubscriberViewSet)
 router.register('archive', views.ArchiveViewSet)
 

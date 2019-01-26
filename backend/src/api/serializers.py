@@ -2,8 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import (
     Post, 
-    Tag, 
-    Image, 
+    Tag,  
     Category, 
     Subscriber, 
     Archive
@@ -21,11 +20,6 @@ class PostSerializer_(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'title', 'subtitle', 'content', 'category', 'archive')
-
-class ImageSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta: 
-        model = Image
-        fields = ('__all__')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta: 
@@ -50,12 +44,11 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
     category = CategorySerializer(read_only=True)
-    post_images = ImageSerializer(many=True, read_only=True)
     
     class Meta:
         model = Post
         fields = ('id', 'title', 'subtitle', 'content', 'tags', 'category', 
-                   'post_images', 'date_posted', 'super_important')
+                   'date_posted', 'super_important')
 
 class SubscriberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

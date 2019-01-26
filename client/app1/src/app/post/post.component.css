@@ -77,7 +77,11 @@ a:hover {
    } 
 
 #post:hover {
-    filter: brightness(70%);
+    filter: brightness(95%);
+}
+
+#post {
+  padding:0%;
 }
 
 
@@ -88,7 +92,7 @@ a:hover {
 .pagination-class /deep/ .ngx-pagination .current {
   font-family: var(--font-style-1); 
   background-color: var(--background-color-4);
-  font-size: 20px;
+  font-size: 14px;
   
 }
 .pagination-class {

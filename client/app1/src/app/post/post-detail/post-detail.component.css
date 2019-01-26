@@ -73,4 +73,14 @@ mat-form-field {
   filter: brightness(70%);
 }
 
+#category {
+  color: #FC4949;
+  text-align: center;
+  margin: 5%;
+}
+
+.label:hover {
+  filter: brightness(70%);
+}
+
 

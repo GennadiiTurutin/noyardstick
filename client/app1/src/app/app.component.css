@@ -52,6 +52,9 @@
       font-family: var(--font-style-1);  
     }
     
+  #icons li>a {
+    color:#FC4949;
+  }
     
   #nav1 #logo {
       font-size: var(--font-size-0); 
@@ -61,20 +64,15 @@
     }
 
     
-    @media (max-width: 80em) {
-      #nav1 .navbar-left {
+  #nav1 .navbar-left {
+        margin: auto;
+        text-align: center;
+      } 
+  #nav1 .navbar-right {
         margin: auto;
       }
-      #nav1 .navbar-center {
-        margin: auto;
-      }
-
-      #nav1 .navbar-right {
-        margin: auto;
-      }
-
-    }
     
+
   
   /* Jumbotron */ 
    
@@ -82,6 +80,13 @@
     background-color: var(--background-color-1); 
     border-top: 5px solid #efeff5;
     font-family: var(--font-style-1); 
+    padding-left: 0px; 
+    padding-right: 0px;
+  }
+
+  .jumbotron img {
+    margin-top: 0%;
+    width:100%;
   }
   
     
@@ -90,6 +95,7 @@
   #nav2 {
       margin-bottom: var(--margin-4);
       font-size: var(--font-size-3);
+      background-color: black;
     }
     
   #nav2>li {
@@ -164,4 +170,8 @@
   /* General */ 
   a:hover { 
     text-decoration: none;
+  }
+
+  *:not(.fa) {
+    font-family: var(--font-style-1); 
   }

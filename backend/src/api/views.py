@@ -6,7 +6,6 @@ from .serializers import (
     TagSerializer, 
     CategorySerializer,
     UserSerializer, 
-    ImageSerializer,
     SubscriberSerializer,
     ArchiveSerializer,
     UserSerializer
@@ -14,8 +13,7 @@ from .serializers import (
 
 from .models import ( 
     Post, 
-    Tag, 
-    Image, 
+    Tag,  
     Category, 
     Subscriber, 
     Archive
@@ -97,18 +95,12 @@ class ArchiveViewSet(viewsets.ModelViewSet):
     queryset = Archive.objects.all()
     serializer_class = ArchiveSerializer
 
-# Image - GET
-
-class ImageViewSet(viewsets.ModelViewSet):
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
-
 # Subscriber - GET, POST
 
 class SubscriberViewSet(viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
-   # authentication_classes = (TokenAuthentication, )
+    authentication_classes = (TokenAuthentication, )
     permission_classes = ()
 
 

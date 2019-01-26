@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\Home\Desktop\noyardstick\backend\venv"
+set "VIRTUAL_ENV=C:\Users\Home\Desktop\yardstick_heroku\noyardstick\backend\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

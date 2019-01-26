@@ -24,7 +24,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebars/right-sidebar/sidebar.component';
 import { PostComponent } from './post/post.component';
 import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutMeComponent } from './popups/about_me/about-me.component';
 import { WatchersComponent } from './watchers/watchers.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
@@ -97,7 +97,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatTableModule,
     NgxPaginationModule,
-    DisqusModule.forRoot('yardstick'),
+    DisqusModule.forRoot('yardstick-1'),
     MarkdownModule.forRoot(),
   ],
   entryComponents: [SubscriptionComponent, ContactComponent],

@@ -8,9 +8,9 @@
     <a *ngFor="let post of posts_important | slice:0:10"
        [routerLink]="['/posts', post.id ]"
        class="list-group-item">
-           <h4 class="list-group-item-heading">
+           <h5 class="list-group-item-heading">
              <b>{{ post.title  }}</b>
-           </h4>
+           </h5>
     </a>
     </ul>
   </div>

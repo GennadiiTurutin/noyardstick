@@ -1,4 +1,4 @@
-#!c:\users\home\desktop\noyardstick\backend\venv\scripts\python.exe
+#!c:\users\home\desktop\yardstick_heroku\noyardstick\backend\venv\scripts\python.exe
 import boto
 from boto.exception import S3ResponseError
 from boto.s3.connection import OrdinaryCallingFormat

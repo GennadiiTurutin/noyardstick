@@ -21,7 +21,7 @@ export class PostDetailComponent implements OnInit {
   post: Observable<any>;
   params;
   loading: boolean = false;
-  pageId = '/posts/1';
+  pageId = 'https://noyardstick.herokuapp.com/posts/'
   
   
   constructor(private api: ApiService, 
@@ -36,6 +36,7 @@ export class PostDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
+          this.pageId = this.pageId + this.id;
         }
       )
 

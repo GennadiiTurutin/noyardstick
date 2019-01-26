@@ -4,7 +4,7 @@
    
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-top: 5%; padding-left: 0%;">
-      <a *ngFor="let archive of archives | slice:0:5"
+      <a *ngFor="let archive of archives"
       [routerLink]="['/archive/search', archive.year,  archive.month ]">    
         <div class="col-xs-12"> 
           <div class="pull-left">
