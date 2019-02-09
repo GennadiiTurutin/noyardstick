@@ -2,11 +2,11 @@
 
       <div class="col-lg-12 col-md-12 col-sm-0 mx-auto">
             <nav id="nav1" class="navbar"> 
-    
                     <ul  class="nav navbar-nav navbar-left">
-                          <a href="/" style="margin-bottom: 10%;" >
-                              <img src="static/app/assets/images/Logo.png" width="80%" >
+                          <a href="/" >
+                              <img src="static/app/assets/images/Logo.png" width="60%" >
                           </a> 
+                          <h4 style="color: #9B9999;"><b><i>The people and the ideas running Russia</i></b></h4>
                     </ul>
                     
                     <ul id="icons" class="nav navbar-nav navbar-right">
@@ -22,31 +22,10 @@
                     </ul>
               </nav> 
               
-                  <div class="jumbotron">
-                       
-                      <div class="row">
-                          <div class="container" >
+                  <div class="jumbotron" style="margin-bottom:0; padding-bottom: 2%; padding-top: 2%;">
+                          
                               <img src="static/app/assets/images/Kremlin.jpg" width="100%">
-                            </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
-                          <h2 ><b><i>The people and the ideas running Russia</i></b></h2>
-                          <br>
-                            <p style="color: #9B9999;">
-                            This blog means to be a small contribution to the solution of the eternal question: <br>
-                            <b style="color: #FC4949;"><i>Who runs Russia and how?</i></b>
-                            <br> Opinions expressed here belong to me and me alone. 
-                            <br>Contributions, comments and sophisticated bad language are always welcome!
-                            </p>
-                            <h3><b>András Tóth-Czifra</b></h3>
-                            <br>
-                            <button mat-ripple mat-raised-button 
-                                        type="button"
-                                        (click)="dialog.openSubscriptionDialog()"
-                                        color="warn"> Subscribe
-                                </button>  
-                        </div>
-              
-                    </div>
+                     
                   </div>
                  
                   <nav id="nav2" class="navbar navbar-inverse navbar-expand-md">
@@ -71,7 +50,7 @@
                   
                         <li id="link" 
                             role="presentation" >
-                          <a (click)="dialog.openAboutMe()">About me</a>
+                          <a (click)="dialog.openAboutMe()">About</a>
                         </li>
                   
                         <li id="link"
@@ -79,8 +58,16 @@
                             routerLinkActive="active">
                           <a routerLink="/watchers">Russia watchers</a>
                         </li>
-                  
                       </ul>
+                      <form  class="navbar-form navbar-right">
+                          <div class="form-group">
+                        <button class="btn btn-danger" 
+                        (click)="dialog.openSubscriptionDialog()"
+                        type="submit">
+                        Subscribe
+                        </button>
+                        </div>
+                      </form>
                   
                   
                       <form (ngSubmit)="searchPosts()" [formGroup]="searchvalue" class="navbar-form navbar-right">
