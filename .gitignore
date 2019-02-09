@@ -5,10 +5,6 @@ lib/
 *.sqlite3
 pip-selfcheck.json
 .env
-
-backend/src/settings/local.py 
-backend/src/settings/production.py 
-backend/src/settings/base.py
 backend/src/settings/keys.py 
 
 # Elastic Beanstalk Files
