@@ -16,7 +16,7 @@ from .models import (
     Tag,  
     Category, 
     Subscriber, 
-    Archive
+    Archive,
     )
 
 from rest_framework.authentication import TokenAuthentication
@@ -26,6 +26,7 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from django.db.models import Q
 from rest_framework.filters import SearchFilter, OrderingFilter
+from django.contrib.messages.views import SuccessMessageMixin
 
 from django.conf import settings
 from django.shortcuts import render
@@ -97,7 +98,7 @@ class ArchiveViewSet(viewsets.ModelViewSet):
 
 # Subscriber - GET, POST
 
-class SubscriberViewSet(viewsets.ModelViewSet):
+class SubscriberViewSet(SuccessMessageMixin, viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
     authentication_classes = (TokenAuthentication, )

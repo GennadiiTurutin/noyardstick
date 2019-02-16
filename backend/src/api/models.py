@@ -8,6 +8,8 @@ import os
 from decouple import config
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from django.contrib import messages
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -48,7 +50,7 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)        
+        super().save(*args, **kwargs)       
         html_message = loader.render_to_string(
             'news.html',
             {'id': self.id, 'title': self.title,

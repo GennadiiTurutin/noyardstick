@@ -59,14 +59,13 @@
                           <a routerLink="/watchers">Russia watchers</a>
                         </li>
                       </ul>
-                      <form  class="navbar-form navbar-right">
-                          <div class="form-group">
+
+                      <form  class="navbar-form navbar-right" style="margin-right: 0%;">
                         <button class="btn btn-danger" 
-                        (click)="dialog.openSubscriptionDialog()"
-                        type="submit">
-                        Subscribe
+                                
+                                (click)="dialog.openSubscriptionDialog()"
+                                type="submit">Subscribe
                         </button>
-                        </div>
                       </form>
                   
                   
@@ -77,11 +76,12 @@
                           style="max-width: 150px;"
                           type="text"
                           formControlName="q" 
-                          placeholder="Search">
+                          placeholder="e.g. Elections">
                         </div>
                         <button class="btn btn-default" type="submit">Search</button>
                       </form>
-                     </div>  
+
+                    </div>  
                   </nav>
                   
                   <nav id="nav3" class="navbar navbar-default" >
@@ -118,11 +118,11 @@
 
       <!-- Social buttons -->
       <ul class="list-unstyled list-inline text-center">
-        <li>
-          <a href="https://www.facebook.com/noyardstick/" class="fa fa-facebook"></a>
+        <li style="margin: 1%">
+          <a href="https://www.facebook.com/noyardstick/" class="fa fa-facebook" ></a>
         </li>
-        <li>
-            <a href="https://twitter.com/NoYardstick" class="fa fa-twitter"></a>
+        <li style="margin: 1%">
+            <a href="https://twitter.com/NoYardstick" class="fa fa-twitter" ></a>
         </li>
       </ul>
     </div>

@@ -2,6 +2,9 @@ import os
 from decouple import config
 from dj_database_url import parse as dburl
 
+from django.contrib.messages import constants as message_constants
+MESSAGE_LEVEL = message_constants.DEBUG
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -15,11 +18,13 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_WHITELIST = ()
+CORS_ORIGIN_WHITELIST = ('http://localhost:4200/')
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 from corsheaders.defaults import default_headers
 

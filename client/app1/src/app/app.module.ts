@@ -14,9 +14,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
-import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CommonModule } from '@angular/common'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -99,6 +101,8 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     DisqusModule.forRoot('yardstick-1'),
     MarkdownModule.forRoot(),
+    CommonModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [SubscriptionComponent, ContactComponent],
   providers: [ 
