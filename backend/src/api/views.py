@@ -26,11 +26,9 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from django.db.models import Q
 from rest_framework.filters import SearchFilter, OrderingFilter
-from django.contrib.messages.views import SuccessMessageMixin
 
 from django.conf import settings
 from django.shortcuts import render
-from django.contrib import messages
 from django.core.mail import send_mail
 
 
@@ -98,10 +96,10 @@ class ArchiveViewSet(viewsets.ModelViewSet):
 
 # Subscriber - GET, POST
 
-class SubscriberViewSet(SuccessMessageMixin, viewsets.ModelViewSet):
+class SubscriberViewSet(viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
-    authentication_classes = (TokenAuthentication, )
+    #authentication_classes = (TokenAuthentication, )
     permission_classes = ()
 
 
