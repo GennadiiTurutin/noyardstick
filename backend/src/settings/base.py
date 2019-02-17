@@ -15,11 +15,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [ '127.0.0.1']
 
-CORS_ORIGIN_WHITELIST = ('127.0.0.1','localhost:4200')
+CORS_ORIGIN_WHITELIST = ('localhost:4200')
 
-from corsheaders.defaults import default_headers
+#from corsheaders.defaults import default_headers
 
-CORS_ALLOW_HEADERS = default_headers + ('X-CSRFToken',)
+#CORS_ALLOW_HEADERS = default_headers + ('X-CSRFToken',)
 
 # Application definition
 
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_extensions',
-    'src.api', 
+    'src.api',
     'rest_framework.authtoken',
     'corsheaders',
     'rest_auth',
@@ -77,19 +77,7 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 # Database settings
 
-if 'RDS_HOSTNAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3'),
@@ -149,15 +137,15 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ], 
+    ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ]
 }
 

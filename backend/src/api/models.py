@@ -1,14 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.urls import reverse
-from django.core.mail import send_mail, send_mass_mail
-from django.template import loader 
+from django.core.mail import send_mail
+from django.template import loader
 import os
-from decouple import config
 from django.db.models.signals import pre_delete
-from django.dispatch import receiver
-from django.contrib import messages
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,14 +15,14 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 class Archive(models.Model):
     month = models.TextField(max_length=20)
     year = models.TextField(max_length=10)
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.month + self.year 
+        return self.month + self.year
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -50,7 +46,7 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)       
+        super().save(*args, **kwargs)
         html_message = loader.render_to_string(
             'news.html',
             {'id': self.id, 'title': self.title,
@@ -60,7 +56,7 @@ class Post(models.Model):
         recipient_list  = Subscriber.instances
         send_mail( subject,
                    message=None,
-                   from_email=from_email, 
+                   from_email=from_email,
                    fail_silently=True,
                    html_message=html_message,
                    recipient_list=recipient_list)
@@ -68,7 +64,7 @@ class Post(models.Model):
 # You can see a record of this email in your logs: https://app.mailgun.com/app/logs
 
 # You can send up to 300 emails/day from this sandbox server.
-# Next, you should add your own domain so you can send 10,000 emails/month for free.    
+# Next, you should add your own domain so you can send 10,000 emails/month for free.
 
 class Subscriber(models.Model):
     id = models.AutoField(primary_key=True)
@@ -78,7 +74,7 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
-        
+
     def save(self, *args, **kwargs):
         Subscriber.instances.append(self.email)
         super().save(*args, **kwargs)
@@ -90,7 +86,7 @@ class Subscriber(models.Model):
         recipient_list  = [self.email]
         send_mail( subject,
                    message=None,
-                   from_email=from_email, 
+                   from_email=from_email,
                    fail_silently=True,
                    html_message=html_message,
                    recipient_list=recipient_list)
@@ -99,5 +95,4 @@ class Subscriber(models.Model):
         Subscriber.instances.remove(instance.email)
 
 pre_delete.connect(Subscriber.delete_subscriber, sender=Subscriber)
-
 

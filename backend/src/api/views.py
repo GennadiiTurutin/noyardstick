@@ -1,35 +1,23 @@
 from rest_framework import viewsets
-from django.contrib.auth.models import User
-from .serializers import ( 
-    PostSerializer,  
-    PostSerializer_,
-    TagSerializer, 
+from .serializers import (
+    PostSerializer,
+    TagSerializer,
     CategorySerializer,
-    UserSerializer, 
     SubscriberSerializer,
     ArchiveSerializer,
-    UserSerializer
     )
 
-from .models import ( 
-    Post, 
-    Tag,  
-    Category, 
-    Subscriber, 
+from .models import (
+    Post,
+    Tag,
+    Category,
+    Subscriber,
     Archive,
     )
 
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.generics import CreateAPIView
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework import generics
-from django.db.models import Q
-from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.filters import SearchFilter
 
-from django.conf import settings
-from django.shortcuts import render
-from django.core.mail import send_mail
 
 
 # Post - GET, POST
@@ -96,14 +84,10 @@ class ArchiveViewSet(viewsets.ModelViewSet):
 
 # Subscriber - GET, POST
 
+
 class SubscriberViewSet(viewsets.ModelViewSet):
     queryset = Subscriber.objects.all()
     serializer_class = SubscriberSerializer
-    #authentication_classes = (TokenAuthentication, )
     permission_classes = ()
-
-
-
-
 
 

@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.models import User
 from .models import Post, Tag, Category, Subscriber, Archive
-from django.contrib import admin
 from django.contrib.auth.models import Group
-from django.forms import TextInput, Textarea
+from django.forms import Textarea
 from django.db import models
 
 class MyPost(admin.ModelAdmin):

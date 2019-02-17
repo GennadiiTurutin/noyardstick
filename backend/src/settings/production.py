@@ -4,7 +4,6 @@ from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -18,12 +17,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_WHITELIST = ('http://localhost:4200/')
+CORS_ORIGIN_WHITELIST = ('http://localhost:4200/', 'https://gennadiit.pythonanywhere.com/')
 
-from corsheaders.defaults import default_headers
+#from corsheaders.defaults import default_headers
 
-CORS_ALLOW_HEADERS = default_headers + (
-    'X-CSRFToken',)
+#CORS_ALLOW_HEADERS = default_headers + (
+#    'X-CSRFToken',)
 
 # Application definition
 
@@ -35,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'src.api', 
+    'src.api',
     'rest_framework.authtoken',
     'corsheaders',
     'rest_auth',
@@ -60,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(os.path.dirname(BASE_DIR),  'static/templates')], # PLACE FOR HTML TEMPLATES
-        'APP_DIRS': True, 
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -80,12 +79,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'noyardstick',
-        'USER': 'GennadiiT',
+        'USER': 'super',
         'PASSWORD': config('database_password'),
         'HOST': 'GennadiiT-1049.postgres.pythonanywhere-services.com',
         'PORT': 11049,
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -130,23 +130,22 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 STATICFILES_DIRS = [
     os.path.join(os.path.dirname(BASE_DIR), 'static'),
     ]
-    
+
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 #MEDIA_ROOT = 'media'
 
 MEDIA_URL = '/media/'
 
-ADMIN_MEDIA_PREFIX = '/media/' 
+ADMIN_MEDIA_PREFIX = '/media/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ], 
+    ],
 
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
     ]
 }
 
