@@ -1,6 +1,5 @@
 import os
 from decouple import config
-from dj_database_url import parse as dburl
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -78,19 +77,15 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database settings
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
-    }
-"""
-    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'mydatabaseuser',
-        'NAME': 'mydatabase',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'noyardstick',
+        'USER': 'GennadiiT',
+        'PASSWORD': config('database_password'),
+        'HOST': 'GennadiiT-1049.postgres.pythonanywhere-services.com',
+        'PORT': 11049,
     }
 }
-"""
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
