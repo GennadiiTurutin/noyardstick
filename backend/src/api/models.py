@@ -70,14 +70,14 @@ class Subscriber(models.Model):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=255,unique=True)
     date_subscribed = models.DateTimeField(default=timezone.now)
-    instances = []
+    instances = set()
 
     def __str__(self):
         return self.email
 
     def save(self, *args, **kwargs):
-        Subscriber.instances.append(self.email)
         super().save(*args, **kwargs)
+        Subscriber.instances.add(self.email)
         html_message = loader.render_to_string(
             'subscription.html',
             {'email': self.email, 'id': self.id})
@@ -92,7 +92,9 @@ class Subscriber(models.Model):
                    recipient_list=recipient_list)
 
     def delete_subscriber(instance, **kwargs):
+        Subscriber.instances.add(instance.email)
         Subscriber.instances.remove(instance.email)
 
 pre_delete.connect(Subscriber.delete_subscriber, sender=Subscriber)
+
 

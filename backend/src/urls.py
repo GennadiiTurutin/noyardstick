@@ -5,6 +5,7 @@ from src.api import urls
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
+from django.views.defaults import page_not_found
 
 
 urlpatterns = [

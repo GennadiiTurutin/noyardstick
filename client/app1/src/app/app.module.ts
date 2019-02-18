@@ -45,6 +45,7 @@ import { UnsubscribeComponent } from './popups/unsubscribe/unsubscribe.component
 import { SomePipe } from './post/post-detail/pipe';
 import { DisqusModule } from "ngx-disqus";
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { NotfoundComponent } from './notfound/notfound.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +57,8 @@ const appRoutes: Routes = [
   { path: 'categories/:id', component: CategorysearchComponent },
   { path: 'archive/search/:year/:month', component: ArchivesearchComponent },
   { path: 'unsubscribe/:id', component: UnsubscribeComponent },
+  { path: '404', component: NotfoundComponent },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
@@ -78,7 +81,8 @@ const appRoutes: Routes = [
     TruncatePipe,
     ArchivesearchComponent,
     UnsubscribeComponent,
-    SomePipe
+    SomePipe,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

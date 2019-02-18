@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categorysearch',
@@ -17,7 +18,8 @@ export class CategorysearchComponent implements OnInit {
 
   constructor(private api: ApiService,
               private route: ActivatedRoute,
-              private router: Router) { 
+              private router: Router,
+              private toastr: ToastrService) { 
                 this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               }
    
@@ -34,7 +36,7 @@ export class CategorysearchComponent implements OnInit {
         }, 
       error => {
           this.loading = false;
-          console.log(error)
+          console.log(error);
         }
       )
   }

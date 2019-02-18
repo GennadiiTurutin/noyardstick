@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tagsearch',
@@ -18,7 +19,9 @@ export class TagsearchComponent implements OnInit {
   p: number = 1;
 
   constructor(private api: ApiService,
-              private route: ActivatedRoute) { }
+              private router: Router,
+              private route: ActivatedRoute,
+              private toastr: ToastrService) { }
     
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -33,7 +36,7 @@ export class TagsearchComponent implements OnInit {
         }, 
       error => {
         this.loading = false;
-        console.log(error)
+        console.log(error);
         }
       )
   }

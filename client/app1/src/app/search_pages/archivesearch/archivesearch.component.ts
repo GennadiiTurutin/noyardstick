@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-archivesearch',
@@ -18,7 +19,8 @@ export class ArchivesearchComponent implements OnInit {
 
   constructor(public api: ApiService,
               private route: ActivatedRoute,
-              private router: Router) { 
+              private router: Router,
+              private toastr: ToastrService) { 
               this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               }
    
@@ -37,6 +39,8 @@ export class ArchivesearchComponent implements OnInit {
       error => {
           this.loading = false;
           console.log(error)
+          this.toastr.error('Error', "Archive not found" );
+          this.router.navigate(['/']);
         }
       )
   }

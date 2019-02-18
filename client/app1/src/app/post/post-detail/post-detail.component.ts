@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { GlobalService } from 'src/app/services/global.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from "rxjs/Rx";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class PostDetailComponent implements OnInit {
               private route: ActivatedRoute, 
               private fb: FormBuilder,
               private router: Router,
-              private globalService: GlobalService) {}
+              private globalService: GlobalService,
+              private toastr: ToastrService) {}
 
   ngOnInit() {
     
@@ -42,10 +44,12 @@ export class PostDetailComponent implements OnInit {
 
     this.api.getPost(this.id).subscribe(
         data => { 
-          this.post = data;
+            this.post = data;
         }, 
         error => {
           console.log(error)
+          this.toastr.error('Error', "Post not found" );
+          this.router.navigate(['/']);
         }
       )
   }
