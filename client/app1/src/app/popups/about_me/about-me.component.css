@@ -28,4 +28,5 @@
 * {
     /*color: var(--font-color-3);*/
     font-family: var(--font-style-1); 
+    background-color: transparent;
   }
