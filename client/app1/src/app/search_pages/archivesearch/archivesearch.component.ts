@@ -33,15 +33,22 @@ export class ArchivesearchComponent implements OnInit {
   getPostsforArchive = () => {
     this.api.getPostsforArchive(this.year, this.month).subscribe(
       data => {
-        this.loading = false;
-        this.archive = data[0];
-        }, 
+        if (data.length > 0 ){
+          this.loading = false;
+          this.archive = data[0];
+        } 
+        else {
+          console.log("Archive doesn't exist");
+          this.toastr.error('Error', "Sorry, please check your data!" );
+          this.router.navigate(['/']);
+          setTimeout(()=>{  
+            this.toastr.info('Info', "You may try our search field!" );
+          }, 4000);
+        }
+      }, 
       error => {
           this.loading = false;
           console.log(error)
-          this.toastr.error('Error', "Archive not found" );
-          this.router.navigate(['/']);
-        }
-      )
+      })
   }
 }

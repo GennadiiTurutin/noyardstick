@@ -5,6 +5,7 @@
     --background-color-2: #F3F1F1;
     --background-color-3: #eaf0f9;
     --background-color-4: #333435;
+    --background-color-5: #F6F5F3;
   
     /* Font color */
     --font-color-1: white;
@@ -35,16 +36,20 @@ p {
 
 #result {
     border: 1px solid var(--background-color-2);
-    
+    background-color: var(--background-color-5);
+    margin-top: var(--margin-2);
+}
+
+
+#result:hover {
+    filter: brightness(95%);
 }
 
 .container {
    min-height: 500px; 
 }
 
-#result:hover {
-    background-color: var(--background-color-2) ;
-}
+
 
 .label {
     background-color: var(--background-color-4);

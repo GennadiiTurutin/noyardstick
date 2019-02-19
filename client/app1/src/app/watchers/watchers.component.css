@@ -5,6 +5,7 @@
     --background-color-2: #F3F1F1;
     --background-color-3: #eaf0f9;
     --background-color-4: #333435;
+    --background-color-5: #F6F5F3;
   
     /* Font color */
     --font-color-1: white;
@@ -27,7 +28,7 @@
 
 
 .jumbotron:hover {
-    filter: brightness(70%);
+    filter: brightness(95%);
 }
 
 a:hover { 
@@ -35,7 +36,7 @@ a:hover {
  } 
 
 .jumbotron {
-    background-color: var(--background-color-1);
+    background-color: var(--background-color-5);
     margin-bottom: var(--margin-2); 
     border: 1px var(--font-color-4) solid;
   }

@@ -2,11 +2,11 @@
     <div class="container" *ngIf="posts?.length > 0">
       <h3>Results for {{ id }}:</h3>
       <mat-spinner *ngIf="loading"></mat-spinner>
-      <a *ngFor="let post of posts | paginate: { itemsPerPage: 2, currentPage: p }"
+      <a *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }"
       [routerLink]="['/posts', post.id ]"> 
       <div id="result" class="col-lg-10 col-md-10 col-sm-10 mx-auto" style="margin-top: 5%; border: grey 0.5 solid">
         <h3><b>{{ post.title }}</b></h3>
-        <h4>{{ post.subtitle }}</h4>
+        <h4>{{ post.subtitle | truncate : 300 : true}}</h4>
         <br>
       </div>
       </a>

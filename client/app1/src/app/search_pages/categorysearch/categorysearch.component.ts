@@ -31,9 +31,19 @@ export class CategorysearchComponent implements OnInit {
   getPostsforCategory = () => {
     this.api.getPostsforCategory(this.id).subscribe(
       data => {
-        this.loading = false;
-        this.category = data[0];
-        }, 
+        if (data.length > 0 ){
+          this.loading = false;
+          this.category = data[0];
+        } 
+        else {
+          console.log("Category doesn't exist");
+          this.toastr.error('Error', "Sorry, not found! Where did you see this category?" );
+          this.router.navigate(['/']);
+          setTimeout(()=>{  
+            this.toastr.info('Info', "You may try our search field!" );
+          }, 4000);
+        } 
+      },
       error => {
           this.loading = false;
           console.log(error);

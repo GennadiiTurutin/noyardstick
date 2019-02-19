@@ -17,6 +17,9 @@ export class TagsearchComponent implements OnInit {
   posts = [];
   loading: boolean = true;
   p: number = 1;
+  
+
+  
 
   constructor(private api: ApiService,
               private router: Router,
@@ -26,19 +29,29 @@ export class TagsearchComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getPostsforTag();
-  }   
+  } 
 
   getPostsforTag = () => {
     this.api.getPostsforTag(this.id).subscribe(
-      data => {
-        this.loading = false;
-        this.tag = data[0];
-        }, 
-      error => {
-        this.loading = false;
-        console.log(error);
-        }
-      )
+        data => {
+          if (data.length > 0 ){
+            this.loading = false;
+            this.tag = data[0];
+            console.log(data);
+          }
+          else {
+            console.log("Tag doesn't exist");
+            this.toastr.error('Error', "Sorry, not found! Where did you see this tag?" );
+            this.router.navigate(['/']);
+            setTimeout(()=>{  
+              this.toastr.info('Info', "You may try our search field!" );
+            }, 4000);
+          }
+        },
+        error => {
+          this.loading = false;
+          console.log(error);
+        })
   }
-
 }
+

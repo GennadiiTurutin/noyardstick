@@ -33,7 +33,13 @@ export class SearchComponent implements OnInit {
       data => {
         this.loading = false;
         this.posts = data;
-        },
+        if (data.length === 0 ) {
+          this.toastr.info('Tips', "Nothing has been found! Try otherwise." );
+        }  
+        if (data.length > 4  ) {
+          this.toastr.info('Tips', "Here are too many articles! Maybe you should be more specific?" );
+        } 
+      },
       error => {
           this.loading = false;
           console.log(error);
