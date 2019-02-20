@@ -23,7 +23,6 @@ export class PostDetailComponent implements OnInit {
   params;
   loading: boolean = false;
   pageId = 'posts/'
-  url = 'http://www.noyardstick.org/'
   
   constructor(private api: ApiService, 
               private route: ActivatedRoute, 
@@ -41,6 +40,7 @@ export class PostDetailComponent implements OnInit {
           this.pageId = this.pageId + this.id;
         }
       )
+      
 
     this.api.getPost(this.id).subscribe(
         data => { 
