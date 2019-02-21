@@ -8,6 +8,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from "rxjs/Rx";
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,18 +23,19 @@ export class PostDetailComponent implements OnInit {
   post: Observable<any>;
   params;
   loading: boolean = false;
-  pageId = '/posts/';
-  title ; 
+  pageId = '/posts/'; 
+  title = 'NoYardstick';
   
   constructor(private api: ApiService, 
               private route: ActivatedRoute, 
               private fb: FormBuilder,
               private router: Router,
               private globalService: GlobalService,
-              private toastr: ToastrService) {}
+              private toastr: ToastrService,
+              private titleService: Title) {}
 
   ngOnInit() {
-    
+    this.titleService.setTitle('NoYardstick')
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -47,6 +49,7 @@ export class PostDetailComponent implements OnInit {
         data => { 
             this.post = data;
             this.title = data.title;
+            this.titleService.setTitle(data.title)
         }, 
         error => {
           console.log(error)

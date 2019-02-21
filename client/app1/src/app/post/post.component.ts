@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Observable } from 'rxjs';
 import { TruncatePipe } from '../pipes/truncate';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -17,7 +18,8 @@ export class PostComponent implements OnInit{
   loading: boolean = true;
 
   
-  constructor (private api: ApiService) { }
+  constructor (private api: ApiService,
+               private titleService: Title) { }
   
   ngOnInit() {
      this.getPosts();

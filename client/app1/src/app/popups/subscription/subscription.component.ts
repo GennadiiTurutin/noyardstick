@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,15 +21,17 @@ export class SubscriptionComponent implements OnInit {
               public dialog: MatDialog,
               private api: ApiService,
               private router: Router,
-              private toastr: ToastrService
+              private toastr: ToastrService,
+              private titleService: Title
               ) { 
     this.userSubscribe = this.fb.group({
       email: ['', [Validators.required, Validators.email] ],
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  
   subscribeUser() {
     this.loading = true;
     this.api.postSubscriber(this.userSubscribe.value).subscribe(

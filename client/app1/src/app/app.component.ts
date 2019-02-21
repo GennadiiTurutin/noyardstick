@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SearchComponent } from '../app/search_pages/search/search.component';
 import { User } from 'src/app/models/user';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
     public api: ApiService,
     public dialog: DialogService,
     private fb: FormBuilder,
+    private titleService: Title,
     
     ) { 
       this.searchvalue = this.fb.group({

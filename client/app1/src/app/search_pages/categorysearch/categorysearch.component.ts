@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-categorysearch',
@@ -19,11 +20,13 @@ export class CategorysearchComponent implements OnInit {
   constructor(private api: ApiService,
               private route: ActivatedRoute,
               private router: Router,
-              private toastr: ToastrService) { 
+              private toastr: ToastrService,
+              private titleService: Title) { 
                 this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               }
    
   ngOnInit() {
+    this.titleService.setTitle('Category')
     this.id = this.route.snapshot.paramMap.get('id');
     this.getPostsforCategory();
   }  

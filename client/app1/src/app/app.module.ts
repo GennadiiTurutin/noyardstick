@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -50,7 +50,7 @@ import { NotfoundComponent } from './notfound/notfound.component'
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts/:id', component: PostDetailComponent },
-  { path: 'about_me', component: AboutMeComponent },
+  { path: 'about_me', component: AboutMeComponent},
   { path: 'watchers', component: WatchersComponent },
   { path: 'search/:id', component: SearchComponent },
   { path: 'tags/:id', component: TagsearchComponent },
@@ -111,7 +111,9 @@ const appRoutes: Routes = [
   entryComponents: [SubscriptionComponent, ContactComponent],
   providers: [ 
     ApiService,
-    DatePipe, GlobalService,
+    DatePipe, 
+    GlobalService,
+    Title,
   ],
 
   bootstrap: [AppComponent],

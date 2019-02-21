@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-unsubscribe',
@@ -18,7 +19,8 @@ export class UnsubscribeComponent implements OnInit {
   constructor(private api: ApiService,
               private router: Router,
               private route: ActivatedRoute,
-              public dialog: DialogService) { }
+              public dialog: DialogService,
+              private titleService: Title) { }
 
   ngOnInit() {
     setTimeout(() => {

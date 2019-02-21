@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-archivesearch',
@@ -20,11 +21,13 @@ export class ArchivesearchComponent implements OnInit {
   constructor(public api: ApiService,
               private route: ActivatedRoute,
               private router: Router,
-              private toastr: ToastrService) { 
+              private toastr: ToastrService,
+              private titleService: Title) { 
               this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               }
    
   ngOnInit() {
+    this.titleService.setTitle('Archive')
     this.year = this.route.snapshot.paramMap.get('year');
     this.month = this.route.snapshot.paramMap.get('month');
     this.getPostsforArchive();
