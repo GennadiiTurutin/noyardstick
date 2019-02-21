@@ -22,7 +22,8 @@ export class PostDetailComponent implements OnInit {
   post: Observable<any>;
   params;
   loading: boolean = false;
-  pageId = 'posts/'
+  pageId = '/posts/';
+  url = 'www.noyardstick.org'
   
   constructor(private api: ApiService, 
               private route: ActivatedRoute, 
