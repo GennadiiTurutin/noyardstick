@@ -24,7 +24,7 @@ export class PostDetailComponent implements OnInit {
   params;
   loading: boolean = false;
   pageId = '/posts/'; 
-  title = 'NoYardstick';
+  title;
   
   constructor(private api: ApiService, 
               private route: ActivatedRoute, 
@@ -35,7 +35,6 @@ export class PostDetailComponent implements OnInit {
               private titleService: Title) {}
 
   ngOnInit() {
-    this.titleService.setTitle('NoYardstick')
     this.route.params
       .subscribe(
         (params: Params) => {
