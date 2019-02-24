@@ -1,9 +1,9 @@
 <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="min-height: 1000px;">
 <div *ngIf="post">
   <div>
-    <h4 id="category"><b>{{ post.category.name }}</b></h4>
+    <h4 id="category" >{{ post.category.name }}</h4>
 </div>   
-        <h2 style="text-align: center;"><b>{{ post.title }}</b></h2>
+        <h2 style="text-align: center;">{{ post.title }}</h2>
         
         <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
 
@@ -17,7 +17,7 @@
                 </div>
 
         
-        <h4><b>{{ post.subtitle }}</b></h4>
+        <h4 style="font-weight: bold;">{{ post.subtitle }}</h4>
         <br>
       <h4>  
       <markdown ngPreserveWhitespaces>

@@ -1,4 +1,4 @@
-<div class="col-lg-12 col-md-12 col-sm-12 mx-auto"  style="min-height: 1200px;"> 
+<div class="col-lg-12 col-md-12 col-sm-12 mx-auto"  style="min-height: 1400px;"> 
   <h3 id="heading"><b>The latest:</b> </h3>
   <mat-spinner *ngIf="loading"></mat-spinner>
    
@@ -9,18 +9,18 @@
       <div>
         <h5 id="category"><b>{{ post.category.name }}</b></h5>
       </div>
-      <h3 style="text-align: center;"><b>{{ post.title }}</b></h3>
+      <h3 style="text-align: center;">{{ post.title }}</h3>
       <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
      
         <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-bottom: 2%; margin-top: 2%;">
           <a *ngFor="let tag of post.tags"
             [routerLink]="['/tags', tag.name ]" >
-              <span class="label label-default">{{ tag.name }} </span>&nbsp;
+              <h4><span class="label label-default">{{ tag.name }}</span>&nbsp;</h4>
           </a>
         </div>
         
      
-      <h4 style="margin-left: 2%; margin-right: 2%;">{{ post.subtitle | truncate : 300 : true}}</h4>
+      <p style="margin-left: 2%; margin-right: 2%;">{{ post.subtitle | truncate : 300 : true}}</p>
     </div>
     
   </a>
