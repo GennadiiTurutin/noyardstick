@@ -12,7 +12,7 @@
       <h3 style="text-align: center;">{{ post.title }}</h3>
       <h5 style="text-align: center; color: grey;" > {{ post.date_posted | date : "'published on ' MMMM d, y" }} </h5>
      
-        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-bottom: 2%; margin-top: 2%;">
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto" style="margin-bottom: 2%; margin-top: 2%; display: inline-block;">
           <a *ngFor="let tag of post.tags"
             [routerLink]="['/tags', tag.name ]" >
               <h4><span class="label label-default">{{ tag.name }}</span>&nbsp;</h4>
